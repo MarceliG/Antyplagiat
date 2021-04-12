@@ -1,0 +1,9 @@
+D:\STUDIA\Socket-File-Transfer-master\Socket-File-Transfer-master\file transfer\bin\Debug\file transfer.exe
+D:\STUDIA\Socket-File-Transfer-master\Socket-File-Transfer-master\file transfer\bin\Debug\file transfer.pdb
+D:\STUDIA\Socket-File-Transfer-master\Socket-File-Transfer-master\file transfer\obj\Debug\file transfer.csprojAssemblyReference.cache
+D:\STUDIA\Socket-File-Transfer-master\Socket-File-Transfer-master\file transfer\obj\Debug\Main.resources
+D:\STUDIA\Socket-File-Transfer-master\Socket-File-Transfer-master\file transfer\obj\Debug\file_transfer.Properties.Resources.resources
+D:\STUDIA\Socket-File-Transfer-master\Socket-File-Transfer-master\file transfer\obj\Debug\file transfer.csproj.GenerateResource.cache
+D:\STUDIA\Socket-File-Transfer-master\Socket-File-Transfer-master\file transfer\obj\Debug\file transfer.csproj.CoreCompileInputs.cache
+D:\STUDIA\Socket-File-Transfer-master\Socket-File-Transfer-master\file transfer\obj\Debug\file transfer.exe
+D:\STUDIA\Socket-File-Transfer-master\Socket-File-Transfer-master\file transfer\obj\Debug\file transfer.pdb

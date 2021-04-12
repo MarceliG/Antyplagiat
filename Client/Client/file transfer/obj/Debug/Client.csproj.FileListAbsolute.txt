@@ -1,0 +1,17 @@
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Socket-File-Transfer-master\file transfer\bin\Debug\file transfer.exe
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Socket-File-Transfer-master\file transfer\bin\Debug\file transfer.pdb
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Socket-File-Transfer-master\file transfer\obj\Debug\Client.csprojAssemblyReference.cache
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Socket-File-Transfer-master\file transfer\obj\Debug\Main.resources
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Socket-File-Transfer-master\file transfer\obj\Debug\file_transfer.Properties.Resources.resources
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Socket-File-Transfer-master\file transfer\obj\Debug\Client.csproj.GenerateResource.cache
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Socket-File-Transfer-master\file transfer\obj\Debug\Client.csproj.CoreCompileInputs.cache
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Socket-File-Transfer-master\file transfer\obj\Debug\file transfer.exe
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Socket-File-Transfer-master\file transfer\obj\Debug\file transfer.pdb
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Client\file transfer\bin\Debug\file transfer.exe
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Client\file transfer\bin\Debug\file transfer.pdb
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Client\file transfer\obj\Debug\Main.resources
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Client\file transfer\obj\Debug\file_transfer.Properties.Resources.resources
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Client\file transfer\obj\Debug\Client.csproj.GenerateResource.cache
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Client\file transfer\obj\Debug\Client.csproj.CoreCompileInputs.cache
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Client\file transfer\obj\Debug\file transfer.exe
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Client\Client\file transfer\obj\Debug\file transfer.pdb

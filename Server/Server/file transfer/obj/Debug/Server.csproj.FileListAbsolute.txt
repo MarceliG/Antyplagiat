@@ -1,0 +1,9 @@
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Server\Server\file transfer\bin\Debug\file transfer.exe
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Server\Server\file transfer\bin\Debug\file transfer.pdb
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.csprojAssemblyReference.cache
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Server\Server\file transfer\obj\Debug\Main.resources
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Server\Server\file transfer\obj\Debug\file_transfer.Properties.Resources.resources
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.csproj.GenerateResource.cache
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Server\Server\file transfer\obj\Debug\file transfer.exe
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Server\Server\file transfer\obj\Debug\file transfer.pdb
