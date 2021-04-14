@@ -7,3 +7,12 @@ D:\STUDIA\Programowanie obiektowe\Antyplagiat\Server\Server\file transfer\obj\De
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.csproj.CoreCompileInputs.cache
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Server\Server\file transfer\obj\Debug\file transfer.exe
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Server\Server\file transfer\obj\Debug\file transfer.pdb
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Main.resources
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.csproj.GenerateResource.cache
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.csprojAssemblyReference.cache
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Server.exe
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Server.pdb
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.Properties.Resources.resources
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.exe
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.pdb

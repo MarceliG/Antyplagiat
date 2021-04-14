@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using file_transfer;
+using Server;
 
 public partial class Main : Form
 {

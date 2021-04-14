@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using file_transfer;
 
-public partial class Main : Form
+public partial class Main
 {
     //This will hold our listener. We will only need to create one instance of this.
     private readonly Listener listener;
@@ -19,7 +19,7 @@ public partial class Main : Form
     private string outputFolder;
     //This will hold our overall progress timer.
     private readonly Timer tmrOverallProg;
-  
+
 
     public Main()
     {
@@ -114,7 +114,7 @@ public partial class Main : Form
             transferClient.Close();
             transferClient = null;
         }
-        
+
     }
 
     private void BtnDisconnect_Click(object sender, EventArgs e)
@@ -158,7 +158,7 @@ public partial class Main : Form
         SetConnectionStatus(transferClient.EndPoint.Address.ToString());
         //Start the progress timer.
         tmrOverallProg.Start();
-        
+
     }
 
     private void RegisterEvents()
@@ -202,7 +202,7 @@ public partial class Main : Form
         i.Name = queue.ID.ToString(); //Set the name of the item to the ID of our transfer for easy access.
         lstTransfers.Items.Add(i); //Add the item
         i.EnsureVisible();
-        
+
         //If the type is download, let the uploader know we're ready.
         if (queue.Type == QueueType.Download)
         {
@@ -414,5 +414,5 @@ public partial class Main : Form
         progressOverall.Value = 0;
     }
 
-    
+
 }

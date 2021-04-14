@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="file_transfer.TransferQueue" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgAAAAASLAwAAAIAAAAABCAAAAAAAIKQEAgAGAAgQ=</HashCode>
+      <FileName>TransferQueue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="file_transfer.TransferClient" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAQkgAAMAUAMAAkAQAYAQQAAAAACAAAAAAgCgAAI=</HashCode>
+      <FileName>TransferClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="file_transfer.Program" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PacketWriter" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAQAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>PacketIO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PacketReader" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAIAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>PacketIO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SocketAcceptedEventArgs" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAQAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Listener.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Listener" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAACAAAAgAAAAAAAAACIAAAAAIIAAAQAAAAQA=</HashCode>
+      <FileName>Listener.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Main" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAiCBC0AAKEoIAACQOCoAiA6QtBBADwAgIAAABCTFAE=</HashCode>
+      <FileName>ClientForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="file_transfer.QueueType" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>TransferQueue.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="file_transfer.Headers" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAEAAACAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Headers.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="file_transfer.TransferEventHandler" Collapsed="true">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TransferClient.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="file_transfer.ConnectCallback" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TransferClient.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="SocketAcceptedHandler" Collapsed="true">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Listener.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

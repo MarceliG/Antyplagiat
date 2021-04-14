@@ -5,7 +5,7 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
-namespace file_transfer
+namespace Server
 {
     public delegate void TransferEventHandler(object sender, TransferQueue queue);
     public delegate void ConnectCallback(object sender, string error);

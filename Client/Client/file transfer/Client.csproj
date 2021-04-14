@@ -7,8 +7,8 @@
     <ProjectGuid>{9196281B-5684-48FF-9529-5E502A94068D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>file_transfer</RootNamespace>
-    <AssemblyName>file transfer</AssemblyName>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,9 +47,7 @@
   <ItemGroup>
     <Compile Include="Headers.cs" />
     <Compile Include="Listener.cs" />
-    <Compile Include="ClientForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="ClientForm.cs" />
     <Compile Include="ClientForm.designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
@@ -69,7 +67,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

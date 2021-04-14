@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace file_transfer
+namespace Server
 {
     static class Program
     {

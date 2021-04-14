@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Client",
+    "\\Client\\Client",
+    "\\Client\\Client\\file transfer",
+    "\\Server",
+    "\\Server\\Server",
+    "\\Server\\Server\\file transfer"
+  ],
+  "SelectedNode": "\\Client\\Client\\Antyplagiat Client.sln",
+  "PreviewInSolutionExplorer": false
+}
