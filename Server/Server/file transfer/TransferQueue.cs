@@ -20,17 +20,19 @@ namespace Server
             try
             {
                 //We will create a new upload queue
-                var queue = new TransferQueue();
-                //Set our filename
-                queue.Filename = Path.GetFileName(fileName);
-                //Set our client
-                queue.Client = client;
-                //Set our queue type to upload.
-                queue.Type = QueueType.Upload;
-                //Create our file stream for reading.
-                queue.FS = new FileStream(fileName, FileMode.Open);
-                //Create our transfer thread
-                queue.Thread = new Thread(new ParameterizedThreadStart(transferProc));
+                var queue = new TransferQueue
+                {
+                    //Set our filename
+                    Filename = Path.GetFileName(fileName),
+                    //Set our client
+                    Client = client,
+                    //Set our queue type to upload.
+                    Type = QueueType.Upload,
+                    //Create our file stream for reading.
+                    FS = new FileStream(fileName, FileMode.Open),
+                    //Create our transfer thread
+                    Thread = new Thread(new ParameterizedThreadStart(TransferProc))
+                };
                 queue.Thread.IsBackground = true;
                 //Generate our ID
                 queue.ID = Program.Rand.Next();
@@ -50,12 +52,14 @@ namespace Server
             try
             {
                 //Same as above with some changes.
-                var queue = new TransferQueue();
-                queue.Filename = Path.GetFileName(saveName);
-                queue.Client = client;
-                queue.Type = QueueType.Download;
-                //Create our file stream for writing.
-                queue.FS = new FileStream(saveName, FileMode.Create);
+                var queue = new TransferQueue
+                {
+                    Filename = Path.GetFileName(saveName),
+                    Client = client,
+                    Type = QueueType.Download,
+                    //Create our file stream for writing.
+                    FS = new FileStream(saveName, FileMode.Create)
+                };
                 //Fill the stream will 0 bytes based on the real size. So we can index write.
                 queue.FS.SetLength(length);
                 queue.Length = length;
@@ -72,9 +76,9 @@ namespace Server
         //This will be the size of our read buffer.
         private const int FILE_BUFFER_SIZE = 8175;
         //This will be the single read buffer every transfer queue will use to save memory.
-        private static byte[] file_buffer = new byte[FILE_BUFFER_SIZE];
+        private static readonly byte[] file_buffer = new byte[FILE_BUFFER_SIZE];
         //This will be used for pausing uploads.
-        private ManualResetEvent pauseEvent;
+        private readonly ManualResetEvent pauseEvent;
         //This will be the generated ID for each transfer.
         public int ID;
         //This will hold the progress and last progress (For checks) for the queues.
@@ -163,7 +167,7 @@ namespace Server
             }
         }
 
-        private static void transferProc(object o)
+        private static void TransferProc(object o)
         {
             //Cast our transfer queue from the parameter.
             TransferQueue queue = (TransferQueue)o;
@@ -224,7 +228,7 @@ namespace Server
                     {
                         queue.LastProgress = queue.Progress;
 
-                        queue.Client.callProgressChanged(queue);
+                        queue.Client.CallProgressChanged(queue);
                     }
 
                     //Sleep for a millisecond so we don't kill our CPU

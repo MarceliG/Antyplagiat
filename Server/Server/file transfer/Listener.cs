@@ -76,7 +76,7 @@ using System.Net;
             _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             _socket.Bind(new IPEndPoint(IPAddress.Any, port));
             _socket.Listen(100);
-            _socket.BeginAccept(acceptCallback, null);
+            _socket.BeginAccept(AcceptCallback, null);
         }
 
         public void Stop()
@@ -88,22 +88,19 @@ using System.Net;
             _socket.Close();
         }
 
-        private void acceptCallback(IAsyncResult ar)
+        private void AcceptCallback(IAsyncResult ar)
         {
             try
             {
                 Socket sck = _socket.EndAccept(ar);
 
-                if (Accepted != null)
-                {
-                    Accepted(this, new SocketAcceptedEventArgs(sck));
-                }
-            }
+            Accepted?.Invoke(this, new SocketAcceptedEventArgs(sck));
+        }
             catch
             {
             }
 
             if (_running)
-                _socket.BeginAccept(acceptCallback, null);
+                _socket.BeginAccept(AcceptCallback, null);
         }
     }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace file_transfer
+namespace Client
 {
     public enum QueueType : byte
     {

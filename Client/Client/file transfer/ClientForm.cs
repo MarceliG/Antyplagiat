@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using file_transfer;
+using Client;
 
-public partial class Main
+public partial class Main : Form 
 {
     //This will hold our listener. We will only need to create one instance of this.
     private readonly Listener listener;

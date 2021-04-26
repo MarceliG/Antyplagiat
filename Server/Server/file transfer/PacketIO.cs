@@ -8,8 +8,8 @@ using System.Drawing.Imaging;
 using System.Runtime.Serialization.Formatters.Binary;
 public class PacketWriter : BinaryWriter
 {
-    private MemoryStream _ms;
-    private BinaryFormatter _bf;
+    private readonly MemoryStream _ms;
+    private readonly BinaryFormatter _bf;
 
     public PacketWriter()
         : base()
@@ -50,7 +50,7 @@ public class PacketWriter : BinaryWriter
 
 public class PacketReader : BinaryReader
 {
-    private BinaryFormatter _bf;
+    private readonly BinaryFormatter _bf;
     public PacketReader(byte[] data)
         : base(new MemoryStream(data))
     {

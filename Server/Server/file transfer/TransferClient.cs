@@ -13,7 +13,7 @@ namespace Server
     public class TransferClient
     {
         //This will hold our connected or connecting socket.
-        private Socket _baseSocket;
+        private readonly Socket _baseSocket;
 
         //This is our receive buffer.
         private byte[] _buffer = new byte[8192];
@@ -78,10 +78,10 @@ namespace Server
             //We could also use the state parameter with BeginConnect so we don't need a variable as well.
             _connectCallback = callback;
             //We will begin an async connect.
-            _baseSocket.BeginConnect(hostName, port, connectCallback, null);
+            _baseSocket.BeginConnect(hostName, port, ConnectCallback, null);
         }
 
-        private void connectCallback(IAsyncResult ar)
+        private void ConnectCallback(IAsyncResult ar)
         {
             string error = null;
             try //.NET will throw an exception if a connection could not be made.
@@ -114,7 +114,7 @@ namespace Server
                  * The data can be fragmented; Meaning 2 bytes might come through, but the other 2 might lag for
                  * a few milliseconds or so
                  * We'll use Peek so we don't mis-read our size bytes and get off the wall sizes.*/
-                _baseSocket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.Peek, receiveCallback, null);
+                _baseSocket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.Peek, ReceiveCallback, null);
             }
             catch
             {
@@ -140,10 +140,7 @@ namespace Server
                 Send(pw.GetBytes());
 
                 //Call queued
-                if (Queued != null)
-                {
-                    Queued(this, queue);
-                }
+                Queued?.Invoke(this, queue);
             }
             catch
             {
@@ -248,11 +245,10 @@ namespace Server
             OutputFolder = null;
 
             //Call disconnected
-            if (Disconnected != null)
-                Disconnected(this, EventArgs.Empty);
+            Disconnected?.Invoke(this, EventArgs.Empty);
         }
 
-        private void process()
+        private void Process()
         {
             PacketReader pr = new PacketReader(_buffer); //Create our packet reader.
 
@@ -275,10 +271,7 @@ namespace Server
                         _transfers.Add(id, queue);
 
                         //Call queued.
-                        if (Queued != null)
-                        {
-                            Queued(this, queue);
-                        }
+                        Queued?.Invoke(this, queue);
                     }
                     break;
                 case Headers.Start:
@@ -308,8 +301,7 @@ namespace Server
                             queue.Close();
 
                             //Call the stopped event.
-                            if (Stopped != null)
-                                Stopped(this, queue);
+                            Stopped?.Invoke(this, queue);
 
                             //Remove the queue
                             _transfers.Remove(id);
@@ -355,20 +347,14 @@ namespace Server
                         {
                             queue.LastProgress = queue.Progress;
 
-                            if (ProgressChanged != null)
-                            {
-                                ProgressChanged(this, queue);
-                            }
+                            ProgressChanged?.Invoke(this, queue);
 
                             //If the transfer is complete, call the event.
                             if (queue.Progress == 100)
                             {
                                 queue.Close();
 
-                                if (Complete != null)
-                                {
-                                    Complete(this, queue);
-                                }
+                                Complete?.Invoke(this, queue);
                             }
                         }
                     }
@@ -377,7 +363,7 @@ namespace Server
             pr.Dispose(); //Dispose the reader.
         }
 
-        private void receiveCallback(IAsyncResult ar)
+        private void ReceiveCallback(IAsyncResult ar)
         {
             try
             {
@@ -408,7 +394,7 @@ namespace Server
                     }
 
                     //We'll call process to handle the data we received.
-                    process();
+                    Process();
                 }
 
                 Run();
@@ -419,12 +405,9 @@ namespace Server
             }
         }
 
-        internal void callProgressChanged(TransferQueue queue)
+        internal void CallProgressChanged(TransferQueue queue)
         {
-            if (ProgressChanged != null)
-            {
-                ProgressChanged(this, queue);
-            }
+            ProgressChanged?.Invoke(this, queue);
         }
     }
 }

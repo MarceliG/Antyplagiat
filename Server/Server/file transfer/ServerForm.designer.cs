@@ -62,12 +62,15 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.BtnStop = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuTransfers.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuTransfers
@@ -126,7 +129,7 @@
             // lblConnected
             // 
             this.lblConnected.Name = "lblConnected";
-            this.lblConnected.Size = new System.Drawing.Size(227, 17);
+            this.lblConnected.Size = new System.Drawing.Size(236, 17);
             this.lblConnected.Spring = true;
             this.lblConnected.Text = "Connection: -";
             // 
@@ -139,8 +142,8 @@
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(92, 17);
-            this.toolStripStatusLabel3.Text = "Overall Progress";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(52, 17);
+            this.toolStripStatusLabel3.Text = "Progress";
             // 
             // progressOverall
             // 
@@ -334,6 +337,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -341,6 +346,22 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Communication with clients";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(253, 121);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(21, 45);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(306, 20);
+            this.textBox1.TabIndex = 0;
             // 
             // Main
             // 
@@ -363,6 +384,8 @@
             this.toolStrip3.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -403,5 +426,7 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     private System.Windows.Forms.ToolStripButton BtnStop;
     private System.Windows.Forms.TabPage tabPage2;
+    private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.TextBox textBox1;
 }
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
-namespace file_transfer
+namespace Client
 {
     public delegate void TransferEventHandler(object sender, TransferQueue queue);
     public delegate void ConnectCallback(object sender, string error);
@@ -107,13 +107,6 @@ namespace file_transfer
             {
                 //Begin receiving the information.
                 //.NET can throw an exception here as well if the socket disconnects.
-                //Just as a precaution.
-
-                /*Except this time, we will use the socket flag of Peek
-                 * We will use peek to see how much data is actually available to read
-                 * The data can be fragmented; Meaning 2 bytes might come through, but the other 2 might lag for
-                 * a few milliseconds or so
-                 * We'll use Peek so we don't mis-read our size bytes and get off the wall sizes.*/
                 _baseSocket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.Peek, ReceiveCallback, null);
             }
             catch
