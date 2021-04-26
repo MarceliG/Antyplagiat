@@ -15,3 +15,4 @@ D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file tra
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.Properties.Resources.resources
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.exe
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.pdb
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.csprojAssemblyReference.cache

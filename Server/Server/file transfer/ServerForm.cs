@@ -47,10 +47,15 @@ public partial class Main : Form
         btnStopTransfer.Click += new EventHandler(BtnStopTransfer_Click);
         btnOpenDir.Click += new EventHandler(BtnOpenDir_Click);
         btnClearComplete.Click += new EventHandler(BtnClearComplete_Click);
+        btnSend.Click += new EventHandler(BtnSend_Click);
 
-        BtnStop.Enabled = false;
+
+         
+    BtnStop.Enabled = false;
     }
 
+
+   
     protected override void OnFormClosing(FormClosingEventArgs e)
     {
         //Deregister all the events from the client if it is connected.
@@ -71,6 +76,7 @@ public partial class Main : Form
         if (InvokeRequired)
         {
             Invoke(new SocketAcceptedHandler(Listener_Accepted), sender, e);
+            
             return;
         }
 
@@ -200,46 +206,7 @@ public partial class Main : Form
         //Set the progress cell to our current progress.
         lstTransfers.Items[queue.ID.ToString()].SubItems[3].Text = queue.Progress + "%";
     }
-    /*
-    void transferClient_Disconnected(object sender, EventArgs e)
-    {
-        if (InvokeRequired)
-        {
-            Invoke(new EventHandler(transferClient_Disconnected), sender, e);
-            return;
-        }
-
-        //Deregister the transfer client events
-        deregisterEvents();
-
-        //Close every transfer
-        foreach (ListViewItem item in lstTransfers.Items)
-        {
-            TransferQueue queue = (TransferQueue)item.Tag;
-            queue.Close();
-        }
-        //Clear the listview
-        lstTransfers.Items.Clear();
-        progressOverall.Value = 0;
-
-        //Set the client to null
-        transferClient = null;
-
-        //Set the connection status to nothing
-        setConnectionStatus("-");
-
-        //If the server is still running, wait for another connection
-        if (serverRunning)
-        {
-            listener.Start(int.Parse(txtServerPort.Text.Trim()));
-            setConnectionStatus("Waiting...");
-        }
-        else //If we connected then disconnected, set the text back to connect.
-        {
-            btnConnect.Text = "Connect";
-        }
-    }
-    */
+    
 
     void TransferClient_Complete(object sender, TransferQueue queue)
     {
@@ -278,6 +245,9 @@ public partial class Main : Form
             //Enable/Disable the server buttons.
             BtnStart.Enabled = false;
             BtnStop.Enabled = true;
+            btnSend.Enabled = true;
+            txtInfo.Text += $"Starting ...{Environment.NewLine}";
+            
         }
         catch
         {
@@ -308,6 +278,7 @@ public partial class Main : Form
         serverRunning = false;
         BtnStart.Enabled = true;
         BtnStop.Enabled = false;
+        txtInfo.Text += $"Stopped{Environment.NewLine}";
     }
 
     private void BtnClearComplete_Click(object sender, EventArgs e)
@@ -391,14 +362,14 @@ public partial class Main : Form
         progressOverall.Value = 0;
     }
 
-    private void BtnStart_Click(object sender, EventArgs e)
-    {
 
+    private void BtnSend_Click(object sender, EventArgs e)
+    {
+       
     }
 
-    private void BtnStop_Click(object sender, EventArgs e)
+    private void Main_Load(object sender, EventArgs e)
     {
-
+        btnSend.Enabled = false;
     }
-
 }

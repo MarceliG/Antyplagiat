@@ -62,10 +62,10 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.BtnStop = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.BtnSend = new System.Windows.Forms.Button();
-            this.txtInfo = new System.Windows.Forms.TextBox();
-            this.txtMessage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtMessage = new System.Windows.Forms.TextBox();
+            this.txtInfo = new System.Windows.Forms.TextBox();
+            this.btnSend = new System.Windows.Forms.Button();
             this.menuTransfers.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -131,7 +131,7 @@
             // lblConnected
             // 
             this.lblConnected.Name = "lblConnected";
-            this.lblConnected.Size = new System.Drawing.Size(267, 17);
+            this.lblConnected.Size = new System.Drawing.Size(301, 17);
             this.lblConnected.Spring = true;
             this.lblConnected.Text = "Connection: -";
             // 
@@ -314,13 +314,13 @@
             // 
             // BtnStart
             // 
+            this.BtnStart.AutoSize = false;
             this.BtnStart.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.BtnStart.Image = ((System.Drawing.Image)(resources.GetObject("BtnStart.Image")));
             this.BtnStart.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BtnStart.Name = "BtnStart";
-            this.BtnStart.Size = new System.Drawing.Size(35, 22);
+            this.BtnStart.Size = new System.Drawing.Size(100, 22);
             this.BtnStart.Text = "Start";
-            this.BtnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
             // toolStripSeparator5
             // 
@@ -329,20 +329,20 @@
             // 
             // BtnStop
             // 
+            this.BtnStop.AutoSize = false;
             this.BtnStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.BtnStop.Image = ((System.Drawing.Image)(resources.GetObject("BtnStop.Image")));
             this.BtnStop.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BtnStop.Name = "BtnStop";
-            this.BtnStop.Size = new System.Drawing.Size(35, 22);
+            this.BtnStop.Size = new System.Drawing.Size(100, 22);
             this.BtnStop.Text = "Stop";
-            this.BtnStop.Click += new System.EventHandler(this.BtnStop_Click);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.txtMessage);
             this.tabPage2.Controls.Add(this.txtInfo);
-            this.tabPage2.Controls.Add(this.BtnSend);
+            this.tabPage2.Controls.Add(this.btnSend);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -351,14 +351,24 @@
             this.tabPage2.Text = "Communication with clients";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // BtnSend
+            // label1
             // 
-            this.BtnSend.Location = new System.Drawing.Point(302, 265);
-            this.BtnSend.Name = "BtnSend";
-            this.BtnSend.Size = new System.Drawing.Size(167, 23);
-            this.BtnSend.TabIndex = 1;
-            this.BtnSend.Text = "Send";
-            this.BtnSend.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(11, 205);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 15);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Message:";
+            // 
+            // txtMessage
+            // 
+            this.txtMessage.Location = new System.Drawing.Point(78, 204);
+            this.txtMessage.Multiline = true;
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtMessage.Size = new System.Drawing.Size(386, 55);
+            this.txtMessage.TabIndex = 3;
             // 
             // txtInfo
             // 
@@ -370,24 +380,14 @@
             this.txtInfo.Size = new System.Drawing.Size(456, 192);
             this.txtInfo.TabIndex = 2;
             // 
-            // txtMessage
+            // btnSend
             // 
-            this.txtMessage.Location = new System.Drawing.Point(78, 204);
-            this.txtMessage.Multiline = true;
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtMessage.Size = new System.Drawing.Size(386, 55);
-            this.txtMessage.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(11, 205);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 15);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Message:";
+            this.btnSend.Location = new System.Drawing.Point(302, 265);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(167, 23);
+            this.btnSend.TabIndex = 1;
+            this.btnSend.Text = "Send";
+            this.btnSend.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -401,6 +401,7 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Server";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.menuTransfers.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -453,7 +454,7 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     private System.Windows.Forms.ToolStripButton BtnStop;
     private System.Windows.Forms.TabPage tabPage2;
-    private System.Windows.Forms.Button BtnSend;
+    private System.Windows.Forms.Button btnSend;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.TextBox txtMessage;
     private System.Windows.Forms.TextBox txtInfo;

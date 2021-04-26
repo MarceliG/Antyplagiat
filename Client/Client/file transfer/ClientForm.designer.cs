@@ -189,11 +189,12 @@
             // 
             // btnConnect
             // 
+            this.btnConnect.AutoSize = false;
             this.btnConnect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnConnect.Image = ((System.Drawing.Image)(resources.GetObject("btnConnect.Image")));
             this.btnConnect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(56, 22);
+            this.btnConnect.Size = new System.Drawing.Size(100, 22);
             this.btnConnect.Text = "Connect";
             // 
             // toolStripSeparator2
@@ -203,12 +204,13 @@
             // 
             // btnDisconnect
             // 
+            this.btnDisconnect.AutoSize = false;
             this.btnDisconnect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnDisconnect.Enabled = false;
             this.btnDisconnect.Image = ((System.Drawing.Image)(resources.GetObject("btnDisconnect.Image")));
             this.btnDisconnect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDisconnect.Name = "btnDisconnect";
-            this.btnDisconnect.Size = new System.Drawing.Size(70, 22);
+            this.btnDisconnect.Size = new System.Drawing.Size(100, 22);
             this.btnDisconnect.Text = "Disconnect";
             this.btnDisconnect.Click += new System.EventHandler(this.BtnDisconnect_Click);
             // 

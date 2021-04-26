@@ -14,6 +14,7 @@ namespace Server
     {
         //This will hold our connected or connecting socket.
         private readonly Socket _baseSocket;
+        private Socket handler = listener.Accept();
 
         //This is our receive buffer.
         private byte[] _buffer = new byte[8192];
@@ -28,6 +29,10 @@ namespace Server
         {
             get { return _transfers; }
         }
+
+        // Incoming data from the client.    
+        string data = null;
+        byte[] bytes = null;
 
         //We should of used IsDisposed, but eh; You get the point.
         public bool Closed
@@ -56,6 +61,7 @@ namespace Server
         public event TransferEventHandler Stopped; //This will be called when a transfer is stopped.
         public event TransferEventHandler Complete; //This will be called when a transfer is complete.
         public event EventHandler Disconnected; //And as you can tell, it will be called upon disconnection.
+
 
         //This will be the constructor for the client when we want to connect.
         public TransferClient()
@@ -122,6 +128,39 @@ namespace Server
                 Close();
             }
         }
+
+        private void MessageTransfer()
+        {
+            try
+            {
+                while (true)
+            {
+                bytes = new byte[1024];
+                int bytesRec = handler.Receive(bytes);
+                data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                if (data.IndexOf("<EOF>") > -1)
+                {
+                    break;
+                }
+            }
+
+            Console.WriteLine("Text received : {0}", data);
+
+            byte[] msg = Encoding.ASCII.GetBytes(data);
+            handler.Send(msg);
+            handler.Shutdown(SocketShutdown.Both);
+            handler.Close();
+         }  
+            catch (Exception e)  
+            {  
+            Console.WriteLine(e.ToString());  
+        }
+        }
+
+
+    
+           
+        
 
         public void QueueTransfer(string fileName)
         {
