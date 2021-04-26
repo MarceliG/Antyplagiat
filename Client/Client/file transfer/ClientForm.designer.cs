@@ -61,11 +61,16 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.progressOverall = new System.Windows.Forms.ToolStripProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMessage = new System.Windows.Forms.TextBox();
+            this.txtInfo = new System.Windows.Forms.TextBox();
+            this.BtnSend = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuTransfers.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +81,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(477, 275);
+            this.tabControl1.Size = new System.Drawing.Size(477, 320);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
@@ -87,7 +92,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(469, 249);
+            this.tabPage1.Size = new System.Drawing.Size(469, 294);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "File Transfer";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -219,7 +224,7 @@
             this.lstTransfers.HideSelection = false;
             this.lstTransfers.Location = new System.Drawing.Point(8, 56);
             this.lstTransfers.Name = "lstTransfers";
-            this.lstTransfers.Size = new System.Drawing.Size(432, 132);
+            this.lstTransfers.Size = new System.Drawing.Size(455, 232);
             this.lstTransfers.TabIndex = 8;
             this.lstTransfers.UseCompatibleStateImageBehavior = false;
             this.lstTransfers.View = System.Windows.Forms.View.Details;
@@ -288,10 +293,14 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.txtMessage);
+            this.tabPage2.Controls.Add(this.txtInfo);
+            this.tabPage2.Controls.Add(this.BtnSend);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(469, 249);
+            this.tabPage2.Size = new System.Drawing.Size(469, 294);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Communication with server";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -303,16 +312,16 @@
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel3,
             this.progressOverall});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 279);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 335);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(455, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(480, 22);
             this.statusStrip1.TabIndex = 11;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // lblConnected
             // 
             this.lblConnected.Name = "lblConnected";
-            this.lblConnected.Size = new System.Drawing.Size(276, 17);
+            this.lblConnected.Size = new System.Drawing.Size(301, 17);
             this.lblConnected.Spring = true;
             this.lblConnected.Text = "Connection: -";
             // 
@@ -334,16 +343,55 @@
             this.progressOverall.Size = new System.Drawing.Size(100, 16);
             this.progressOverall.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(7, 205);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 15);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Message:";
+            // 
+            // txtMessage
+            // 
+            this.txtMessage.Location = new System.Drawing.Point(74, 204);
+            this.txtMessage.Multiline = true;
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtMessage.Size = new System.Drawing.Size(386, 55);
+            this.txtMessage.TabIndex = 7;
+            // 
+            // txtInfo
+            // 
+            this.txtInfo.Location = new System.Drawing.Point(4, 6);
+            this.txtInfo.Multiline = true;
+            this.txtInfo.Name = "txtInfo";
+            this.txtInfo.ReadOnly = true;
+            this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtInfo.Size = new System.Drawing.Size(456, 192);
+            this.txtInfo.TabIndex = 6;
+            // 
+            // BtnSend
+            // 
+            this.BtnSend.Location = new System.Drawing.Point(298, 265);
+            this.BtnSend.Name = "BtnSend";
+            this.BtnSend.Size = new System.Drawing.Size(167, 23);
+            this.BtnSend.TabIndex = 5;
+            this.BtnSend.Text = "Send";
+            this.BtnSend.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(455, 301);
+            this.ClientSize = new System.Drawing.Size(480, 357);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Client";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -353,6 +401,8 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.menuTransfers.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -395,5 +445,9 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     private System.Windows.Forms.ToolStripButton btnDisconnect;
+    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.TextBox txtMessage;
+    private System.Windows.Forms.TextBox txtInfo;
+    private System.Windows.Forms.Button BtnSend;
 }
 
