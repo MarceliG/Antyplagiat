@@ -50,12 +50,12 @@ public partial class Main : Form
         btnSend.Click += new EventHandler(BtnSend_Click);
 
 
-         
-    BtnStop.Enabled = false;
+
+        BtnStop.Enabled = false;
     }
 
 
-   
+
     protected override void OnFormClosing(FormClosingEventArgs e)
     {
         //Deregister all the events from the client if it is connected.
@@ -76,7 +76,7 @@ public partial class Main : Form
         if (InvokeRequired)
         {
             Invoke(new SocketAcceptedHandler(Listener_Accepted), sender, e);
-            
+
             return;
         }
 
@@ -187,7 +187,7 @@ public partial class Main : Form
         i.Name = queue.ID.ToString(); //Set the name of the item to the ID of our transfer for easy access.
         lstTransfers.Items.Add(i); //Add the item
         i.EnsureVisible();
-        
+
         //If the type is download, let the uploader know we're ready.
         if (queue.Type == QueueType.Download)
         {
@@ -206,7 +206,7 @@ public partial class Main : Form
         //Set the progress cell to our current progress.
         lstTransfers.Items[queue.ID.ToString()].SubItems[3].Text = queue.Progress + "%";
     }
-    
+
 
     void TransferClient_Complete(object sender, TransferQueue queue)
     {
@@ -247,7 +247,7 @@ public partial class Main : Form
             BtnStop.Enabled = true;
             btnSend.Enabled = true;
             txtInfo.Text += $"Starting ...{Environment.NewLine}";
-            
+
         }
         catch
         {
@@ -365,7 +365,15 @@ public partial class Main : Form
 
     private void BtnSend_Click(object sender, EventArgs e)
     {
-       
+
+
+        //if (transferClient == null)
+        //    return;
+
+        //string message = txtMessage.Text;
+
+        //transferClient.QueueTransfer(message);
+
     }
 
     private void Main_Load(object sender, EventArgs e)

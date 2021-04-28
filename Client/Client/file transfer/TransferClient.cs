@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
@@ -13,20 +11,20 @@ namespace Client
     public class TransferClient
     {
         //This will hold our connected or connecting socket.
-        private readonly Socket _baseSocket;
+        private readonly Socket baseSocket;
 
         //This is our receive buffer.
-        private byte[] _buffer = new byte[8192];
+        private byte[] buffer = new byte[8192];
 
         //This is used for connecting.
-        private ConnectCallback _connectCallback;
+        private ConnectCallback connectCallback;
 
         //This stores all of our transfers. Download and upload.
-        private Dictionary<int, TransferQueue> _transfers = new Dictionary<int, TransferQueue>();
+        private Dictionary<int, TransferQueue> transfers = new Dictionary<int, TransferQueue>();
 
         public Dictionary<int, TransferQueue> Transfers
         {
-            get { return _transfers; }
+            get { return transfers; }
         }
 
         //We should of used IsDisposed, but eh; You get the point.
@@ -60,25 +58,25 @@ namespace Client
         //This will be the constructor for the client when we want to connect.
         public TransferClient()
         {
-            _baseSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            baseSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
 
         //This is the constructor we will use once a connection is accepted by the listener.
         public TransferClient(Socket sock)
         {
             //Set the socket.
-            _baseSocket = sock;
+            baseSocket = sock;
             //Grab the end point.
-            EndPoint = (IPEndPoint)_baseSocket.RemoteEndPoint;
+            EndPoint = (IPEndPoint)baseSocket.RemoteEndPoint;
         }
 
         public void Connect(string hostName, int port, ConnectCallback callback)
         {
             //Set the callback we set in the parameter to our local variable.
             //We could also use the state parameter with BeginConnect so we don't need a variable as well.
-            _connectCallback = callback;
+            connectCallback = callback;
             //We will begin an async connect.
-            _baseSocket.BeginConnect(hostName, port, ConnectCallback, null);
+            baseSocket.BeginConnect(hostName, port, ConnectCallback, null);
         }
 
         private void ConnectCallback(IAsyncResult ar)
@@ -87,9 +85,9 @@ namespace Client
             try //.NET will throw an exception if a connection could not be made.
             {
                 //Call EndConnect to finish the async operation.
-                _baseSocket.EndConnect(ar);
+                baseSocket.EndConnect(ar);
                 //Grab the end point like we did up top.
-                EndPoint = (IPEndPoint)_baseSocket.RemoteEndPoint;
+                EndPoint = (IPEndPoint)baseSocket.RemoteEndPoint;
             }
             catch (Exception ex)
             {
@@ -98,7 +96,7 @@ namespace Client
             }
 
             //After everything is done, call the callback.
-            _connectCallback(this, error);
+            connectCallback(this, error);
         }
 
         public void Run()
@@ -107,7 +105,7 @@ namespace Client
             {
                 //Begin receiving the information.
                 //.NET can throw an exception here as well if the socket disconnects.
-                _baseSocket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.Peek, ReceiveCallback, null);
+                baseSocket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.Peek, ReceiveCallback, null);
             }
             catch
             {
@@ -123,7 +121,7 @@ namespace Client
                 //We will create our upload queue.
                 TransferQueue queue = TransferQueue.CreateUploadQueue(this, fileName);
                 //Add the transfer to our transfer list.
-                _transfers.Add(queue.ID, queue);
+                transfers.Add(queue.ID, queue);
                 //Now we will create and build our queue packet.
                 PacketWriter pw = new PacketWriter();
                 pw.Write((byte)Headers.Queue);
@@ -182,7 +180,7 @@ namespace Client
             int overall = 0;
             try
             {
-                foreach (KeyValuePair<int, TransferQueue> pair in _transfers)
+                foreach (KeyValuePair<int, TransferQueue> pair in transfers)
                 {
                     //Add the progress of each transfer to our variable for calculation
                     overall += pair.Value.Progress;
@@ -191,9 +189,9 @@ namespace Client
                 if (overall > 0)
                 {
                     //We'll use the formula of
-                    //(OVERALL_PROGRESS * 100) / (PROGRESS_COUNT * 100)
+                    //(OVERALL PROGRESS * 100) / (PROGRESS_COUNT * 100)
                     //To gather the overall progess of every transfer.
-                    overall = (overall * 100) / (_transfers.Count * 100);
+                    overall = (overall * 100) / (transfers.Count * 100);
                 }
             }
             catch { overall = 0; /*If there was an issue, just return 0*/ }
@@ -213,9 +211,9 @@ namespace Client
                 try
                 {
                     //Send the size of the packet.
-                    _baseSocket.Send(BitConverter.GetBytes(data.Length), 0, 4, SocketFlags.None);
+                    baseSocket.Send(BitConverter.GetBytes(data.Length), 0, 4, SocketFlags.None);
                     //And then the actual packet.
-                    _baseSocket.Send(data, 0, data.Length, SocketFlags.None);
+                    baseSocket.Send(data, 0, data.Length, SocketFlags.None);
                 }
                 catch
                 {
@@ -231,10 +229,10 @@ namespace Client
                 return;
             //
             Closed = true;
-            _baseSocket.Close(); //Close the socket
-            _transfers.Clear(); //Clear the transfers
-            _transfers = null;
-            _buffer = null;
+            baseSocket.Close(); //Close the socket
+            transfers.Clear(); //Clear the transfers
+            transfers = null;
+            buffer = null;
             OutputFolder = null;
 
             //Call disconnected
@@ -243,7 +241,7 @@ namespace Client
 
         private void Process()
         {
-            PacketReader pr = new PacketReader(_buffer); //Create our packet reader.
+            PacketReader pr = new PacketReader(buffer); //Create our packet reader.
 
             Headers header = (Headers)pr.ReadByte(); //Read and cast our header.
 
@@ -261,7 +259,7 @@ namespace Client
                             Path.GetFileName(fileName)), length);
 
                         //Add it to our transfer list.
-                        _transfers.Add(id, queue);
+                        transfers.Add(id, queue);
 
                         //Call queued.
                         Queued?.Invoke(this, queue);
@@ -273,9 +271,9 @@ namespace Client
                         int id = pr.ReadInt32();
 
                         //Start the upload.
-                        if (_transfers.ContainsKey(id))
+                        if (transfers.ContainsKey(id))
                         {
-                            _transfers[id].Start();
+                            transfers[id].Start();
                         }
                     }
                     break;
@@ -284,10 +282,10 @@ namespace Client
                         //Read the ID
                         int id = pr.ReadInt32();
 
-                        if (_transfers.ContainsKey(id))
+                        if (transfers.ContainsKey(id))
                         {
                             //Get the queue.
-                            TransferQueue queue = _transfers[id];
+                            TransferQueue queue = transfers[id];
 
                             //Stop and close the queue
                             queue.Stop();
@@ -297,7 +295,7 @@ namespace Client
                             Stopped?.Invoke(this, queue);
 
                             //Remove the queue
-                            _transfers.Remove(id);
+                            transfers.Remove(id);
                         }
                     }
                     break;
@@ -306,9 +304,9 @@ namespace Client
                         int id = pr.ReadInt32();
 
                         //Pause the upload.
-                        if (_transfers.ContainsKey(id))
+                        if (transfers.ContainsKey(id))
                         {
-                            _transfers[id].Pause();
+                            transfers[id].Pause();
                         }
                     }
                     break;
@@ -321,7 +319,7 @@ namespace Client
                         byte[] buffer = pr.ReadBytes(size);
 
                         //Get the queue.
-                        TransferQueue queue = _transfers[id];
+                        TransferQueue queue = transfers[id];
 
                         //Write the newly transferred bytes to the queue based on the write index.
                         queue.Write(buffer, index);
@@ -361,7 +359,7 @@ namespace Client
             try
             {
                 //Call EndReceive to get the amount available.
-                int found = _baseSocket.EndReceive(ar);
+                int found = baseSocket.EndReceive(ar);
 
                 //If found is or is greater than 4 (Meaning our size bytes are there)
                 //We will actually read it from our buffer.
@@ -369,13 +367,13 @@ namespace Client
                 if (found >= 4)
                 {
                     //We will receive our size bytes
-                    _baseSocket.Receive(_buffer, 0, 4, SocketFlags.None);
+                    baseSocket.Receive(buffer, 0, 4, SocketFlags.None);
 
                     //Get the int value.
-                    int size = BitConverter.ToInt32(_buffer, 0);
+                    int size = BitConverter.ToInt32(buffer, 0);
 
                     //And attempt to read our
-                    int read = _baseSocket.Receive(_buffer, 0, size, SocketFlags.None);
+                    int read = baseSocket.Receive(buffer, 0, size, SocketFlags.None);
 
                     /*Data could still be fragmented, so we'll check our read size against the actual size.
                      * If read is less than size, we'll keep receiving until we have the full packet.
@@ -383,7 +381,7 @@ namespace Client
                      * receive*/
                     while (read < size)
                     {
-                        read += _baseSocket.Receive(_buffer, read, size - read, SocketFlags.None);
+                        read += baseSocket.Receive(buffer, read, size - read, SocketFlags.None);
                     }
 
                     //We'll call process to handle the data we received.
