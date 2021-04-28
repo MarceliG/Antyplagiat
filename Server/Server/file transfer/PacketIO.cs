@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
+﻿using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.Serialization.Formatters.Binary;
 public class PacketWriter : BinaryWriter
 {
-    private readonly MemoryStream _ms;
-    private readonly BinaryFormatter _bf;
+    private readonly MemoryStream ms;
+    private readonly BinaryFormatter bf;
 
     public PacketWriter()
         : base()
     {
-        _ms = new MemoryStream();
-        _bf = new BinaryFormatter();
-        OutStream = _ms;
+        ms = new MemoryStream();
+        bf = new BinaryFormatter();
+        OutStream = ms;
     }
 
     public void Write(Image image)
@@ -35,14 +31,14 @@ public class PacketWriter : BinaryWriter
 
     public void WriteT(object obj)
     {
-        _bf.Serialize(_ms, obj);
+        bf.Serialize(ms, obj);
     }
 
     public byte[] GetBytes()
     {
         Close();
 
-        byte[] data = _ms.ToArray();
+        byte[] data = ms.ToArray();
 
         return data;
     }
@@ -50,11 +46,11 @@ public class PacketWriter : BinaryWriter
 
 public class PacketReader : BinaryReader
 {
-    private readonly BinaryFormatter _bf;
+    private readonly BinaryFormatter bf;
     public PacketReader(byte[] data)
         : base(new MemoryStream(data))
     {
-        _bf = new BinaryFormatter();
+        bf = new BinaryFormatter();
     }
 
     public Image ReadImage()
@@ -75,6 +71,6 @@ public class PacketReader : BinaryReader
 
     public T ReadObject<T>()
     {
-        return (T)_bf.Deserialize(BaseStream);
+        return (T)bf.Deserialize(BaseStream);
     }
 }
