@@ -123,12 +123,19 @@ namespace Server
                 Close();
             }
         }
- 
+
+
+        public void SendMessage(string text)
+        {
+            PacketWriter pw = new PacketWriter();
+            //Send(pw.GetBytes)
+        }
 
         public void QueueTransfer(string fileName)
         {
             try
             {
+
                 //We will create our upload queue.
                 TransferQueue queue = TransferQueue.CreateUploadQueue(this, fileName);
                 //Add the transfer to our transfer list.

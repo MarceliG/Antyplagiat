@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
+﻿using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -11,8 +7,7 @@ public class PacketWriter : BinaryWriter
     private readonly MemoryStream ms;
     private readonly BinaryFormatter bf;
 
-    public PacketWriter()
-        : base()
+    public PacketWriter(): base()
     {
         ms = new MemoryStream();
         bf = new BinaryFormatter();

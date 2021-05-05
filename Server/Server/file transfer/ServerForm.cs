@@ -324,7 +324,7 @@ public partial class Main : Form
             o.Filter = "All Files (*.*)|*.*";
             o.Multiselect = true;
 
-            if (o.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (o.ShowDialog() == DialogResult.OK)
             {
                 foreach (string file in o.FileNames)
                 {
@@ -366,14 +366,13 @@ public partial class Main : Form
     private void BtnSend_Click(object sender, EventArgs e)
     {
 
+        if (transferClient == null)
+            return;
 
-        //if (transferClient == null)
-        //    return;
-
-        //string message = txtMessage.Text;
-
-        //transferClient.QueueTransfer(message);
-
+        if (!string.IsNullOrEmpty(txtMessage.Text))
+        {
+            transferClient.SendMessage(txtMessage.Text);
+        }
     }
 
     private void Main_Load(object sender, EventArgs e)
