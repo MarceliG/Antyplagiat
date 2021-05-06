@@ -66,6 +66,14 @@
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.txtInfo = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.BtnDirectory1 = new System.Windows.Forms.Button();
+            this.BtnDirectory2 = new System.Windows.Forms.Button();
+            this.TxtPath1 = new System.Windows.Forms.TextBox();
+            this.TxtPath2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BtnCompare = new System.Windows.Forms.Button();
             this.menuTransfers.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -73,6 +81,7 @@
             this.toolStrip3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuTransfers
@@ -157,6 +166,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabControl1.Location = new System.Drawing.Point(0, 12);
             this.tabControl1.Name = "tabControl1";
@@ -389,6 +399,84 @@
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.BtnCompare);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Controls.Add(this.TxtPath2);
+            this.tabPage3.Controls.Add(this.TxtPath1);
+            this.tabPage3.Controls.Add(this.BtnDirectory2);
+            this.tabPage3.Controls.Add(this.BtnDirectory1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(472, 294);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Compare files";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // BtnDirectory1
+            // 
+            this.BtnDirectory1.Location = new System.Drawing.Point(350, 51);
+            this.BtnDirectory1.Name = "BtnDirectory1";
+            this.BtnDirectory1.Size = new System.Drawing.Size(110, 30);
+            this.BtnDirectory1.TabIndex = 0;
+            this.BtnDirectory1.Text = "Chose directory 1#";
+            this.BtnDirectory1.UseVisualStyleBackColor = true;
+            // 
+            // BtnDirectory2
+            // 
+            this.BtnDirectory2.Location = new System.Drawing.Point(350, 100);
+            this.BtnDirectory2.Name = "BtnDirectory2";
+            this.BtnDirectory2.Size = new System.Drawing.Size(110, 30);
+            this.BtnDirectory2.TabIndex = 1;
+            this.BtnDirectory2.Text = "Chose directory 2#";
+            this.BtnDirectory2.UseVisualStyleBackColor = true;
+            // 
+            // TxtPath1
+            // 
+            this.TxtPath1.Location = new System.Drawing.Point(113, 57);
+            this.TxtPath1.Name = "TxtPath1";
+            this.TxtPath1.ReadOnly = true;
+            this.TxtPath1.Size = new System.Drawing.Size(213, 20);
+            this.TxtPath1.TabIndex = 2;
+            // 
+            // TxtPath2
+            // 
+            this.TxtPath2.Location = new System.Drawing.Point(113, 106);
+            this.TxtPath2.Name = "TxtPath2";
+            this.TxtPath2.ReadOnly = true;
+            this.TxtPath2.Size = new System.Drawing.Size(213, 20);
+            this.TxtPath2.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "First file path:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Second file path:";
+            // 
+            // BtnCompare
+            // 
+            this.BtnCompare.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.BtnCompare.Location = new System.Drawing.Point(185, 150);
+            this.BtnCompare.Name = "BtnCompare";
+            this.BtnCompare.Size = new System.Drawing.Size(100, 35);
+            this.BtnCompare.TabIndex = 6;
+            this.BtnCompare.Text = "Compare";
+            this.BtnCompare.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,6 +502,8 @@
             this.toolStrip1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,5 +548,13 @@
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.TextBox txtMessage;
     private System.Windows.Forms.TextBox txtInfo;
+    private System.Windows.Forms.TabPage tabPage3;
+    private System.Windows.Forms.Button BtnCompare;
+    private System.Windows.Forms.Label label3;
+    private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.TextBox TxtPath2;
+    private System.Windows.Forms.TextBox TxtPath1;
+    private System.Windows.Forms.Button BtnDirectory2;
+    private System.Windows.Forms.Button BtnDirectory1;
 }
 
