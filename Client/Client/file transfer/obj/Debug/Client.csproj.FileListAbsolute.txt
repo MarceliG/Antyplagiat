@@ -23,3 +23,4 @@ D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Client\Client\file tra
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Client\Client\file transfer\obj\Debug\Client.csproj.CoreCompileInputs.cache
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Client\Client\file transfer\obj\Debug\Client.exe
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Client\Client\file transfer\obj\Debug\Client.pdb
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Client\Client\file transfer\obj\Debug\Client.csprojAssemblyReference.cache
