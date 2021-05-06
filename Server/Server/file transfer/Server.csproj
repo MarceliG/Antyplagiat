@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompareFiles.cs" />
     <Compile Include="Headers.cs" />
     <Compile Include="Listener.cs" />
     <Compile Include="ServerForm.cs">

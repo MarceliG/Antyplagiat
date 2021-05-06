@@ -87,7 +87,9 @@ public partial class Main : Form
                 TxtPath1.Text = file.FileName;
             }
         }
+        
     }
+
 
     protected override void OnFormClosing(FormClosingEventArgs e)
     {
