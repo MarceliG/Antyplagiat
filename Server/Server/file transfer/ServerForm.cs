@@ -48,13 +48,46 @@ public partial class Main : Form
         btnOpenDir.Click += new EventHandler(BtnOpenDir_Click);
         btnClearComplete.Click += new EventHandler(BtnClearComplete_Click);
         btnSend.Click += new EventHandler(BtnSend_Click);
-
+        BtnDirectory1.Click += new EventHandler(BtnDirectory1_Click);
+        BtnDirectory2.Click += new EventHandler(BtnDirectory2_Click);
+        BtnCompare.Click += new EventHandler(BtnCompare_Click);
 
 
         BtnStop.Enabled = false;
     }
 
+    private void BtnCompare_Click(object sender, EventArgs e)
+    {
+        
+    }
 
+    private void BtnDirectory2_Click(object sender, EventArgs e)
+    {
+        using (OpenFileDialog file = new OpenFileDialog())
+        {
+            file.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            file.Multiselect = true;
+
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                TxtPath2.Text = file.FileName;
+            }
+        }
+    }
+
+    private void BtnDirectory1_Click(object sender, EventArgs e)
+    {
+        using (OpenFileDialog file = new OpenFileDialog())
+        {
+            file.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            file.Multiselect = true;
+
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                TxtPath1.Text = file.FileName;
+            }
+        }
+    }
 
     protected override void OnFormClosing(FormClosingEventArgs e)
     {
