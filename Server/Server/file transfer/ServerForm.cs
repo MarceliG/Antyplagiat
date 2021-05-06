@@ -58,7 +58,11 @@ public partial class Main : Form
 
     private void BtnCompare_Click(object sender, EventArgs e)
     {
-        
+        CompareFiles compare = new CompareFiles();
+
+        string text = compare.ReadFile(TxtPath1.Text);
+
+        TxtFile.Text += text; 
     }
 
     private void BtnDirectory2_Click(object sender, EventArgs e)

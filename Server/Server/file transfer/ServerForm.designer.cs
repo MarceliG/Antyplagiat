@@ -74,6 +74,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnCompare = new System.Windows.Forms.Button();
+            this.TxtFile = new System.Windows.Forms.TextBox();
             this.menuTransfers.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -401,6 +402,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.TxtFile);
             this.tabPage3.Controls.Add(this.BtnCompare);
             this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.label2);
@@ -476,6 +478,15 @@
             this.BtnCompare.TabIndex = 6;
             this.BtnCompare.Text = "Compare";
             this.BtnCompare.UseVisualStyleBackColor = true;
+            // 
+            // TxtFile
+            // 
+            this.TxtFile.Location = new System.Drawing.Point(13, 191);
+            this.TxtFile.Multiline = true;
+            this.TxtFile.Name = "TxtFile";
+            this.TxtFile.ReadOnly = true;
+            this.TxtFile.Size = new System.Drawing.Size(456, 100);
+            this.TxtFile.TabIndex = 7;
             // 
             // Main
             // 
@@ -556,5 +567,6 @@
     private System.Windows.Forms.TextBox TxtPath1;
     private System.Windows.Forms.Button BtnDirectory2;
     private System.Windows.Forms.Button BtnDirectory1;
+    private System.Windows.Forms.TextBox TxtFile;
 }
 
