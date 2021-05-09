@@ -67,14 +67,15 @@
             this.txtInfo = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.BtnDirectory1 = new System.Windows.Forms.Button();
-            this.BtnDirectory2 = new System.Windows.Forms.Button();
-            this.TxtPath1 = new System.Windows.Forms.TextBox();
-            this.TxtPath2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.TxtFile1 = new System.Windows.Forms.TextBox();
             this.BtnCompare = new System.Windows.Forms.Button();
-            this.TxtFile = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtPath2 = new System.Windows.Forms.TextBox();
+            this.TxtPath1 = new System.Windows.Forms.TextBox();
+            this.BtnDirectory2 = new System.Windows.Forms.Button();
+            this.BtnDirectory1 = new System.Windows.Forms.Button();
+            this.TxtFile2 = new System.Windows.Forms.TextBox();
             this.menuTransfers.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -402,7 +403,8 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.TxtFile);
+            this.tabPage3.Controls.Add(this.TxtFile2);
+            this.tabPage3.Controls.Add(this.TxtFile1);
             this.tabPage3.Controls.Add(this.BtnCompare);
             this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.label2);
@@ -417,57 +419,14 @@
             this.tabPage3.Text = "Compare files";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // BtnDirectory1
+            // TxtFile1
             // 
-            this.BtnDirectory1.Location = new System.Drawing.Point(350, 51);
-            this.BtnDirectory1.Name = "BtnDirectory1";
-            this.BtnDirectory1.Size = new System.Drawing.Size(110, 30);
-            this.BtnDirectory1.TabIndex = 0;
-            this.BtnDirectory1.Text = "Chose directory 1#";
-            this.BtnDirectory1.UseVisualStyleBackColor = true;
-            // 
-            // BtnDirectory2
-            // 
-            this.BtnDirectory2.Location = new System.Drawing.Point(350, 100);
-            this.BtnDirectory2.Name = "BtnDirectory2";
-            this.BtnDirectory2.Size = new System.Drawing.Size(110, 30);
-            this.BtnDirectory2.TabIndex = 1;
-            this.BtnDirectory2.Text = "Chose directory 2#";
-            this.BtnDirectory2.UseVisualStyleBackColor = true;
-            // 
-            // TxtPath1
-            // 
-            this.TxtPath1.Location = new System.Drawing.Point(113, 57);
-            this.TxtPath1.Name = "TxtPath1";
-            this.TxtPath1.ReadOnly = true;
-            this.TxtPath1.Size = new System.Drawing.Size(213, 20);
-            this.TxtPath1.TabIndex = 2;
-            // 
-            // TxtPath2
-            // 
-            this.TxtPath2.Location = new System.Drawing.Point(113, 106);
-            this.TxtPath2.Name = "TxtPath2";
-            this.TxtPath2.ReadOnly = true;
-            this.TxtPath2.Size = new System.Drawing.Size(213, 20);
-            this.TxtPath2.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "First file path:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Second file path:";
+            this.TxtFile1.Location = new System.Drawing.Point(13, 191);
+            this.TxtFile1.Multiline = true;
+            this.TxtFile1.Name = "TxtFile1";
+            this.TxtFile1.ReadOnly = true;
+            this.TxtFile1.Size = new System.Drawing.Size(223, 100);
+            this.TxtFile1.TabIndex = 7;
             // 
             // BtnCompare
             // 
@@ -479,14 +438,66 @@
             this.BtnCompare.Text = "Compare";
             this.BtnCompare.UseVisualStyleBackColor = true;
             // 
-            // TxtFile
+            // label3
             // 
-            this.TxtFile.Location = new System.Drawing.Point(13, 191);
-            this.TxtFile.Multiline = true;
-            this.TxtFile.Name = "TxtFile";
-            this.TxtFile.ReadOnly = true;
-            this.TxtFile.Size = new System.Drawing.Size(456, 100);
-            this.TxtFile.TabIndex = 7;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Second file path:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "First file path:";
+            // 
+            // TxtPath2
+            // 
+            this.TxtPath2.Location = new System.Drawing.Point(113, 106);
+            this.TxtPath2.Name = "TxtPath2";
+            this.TxtPath2.ReadOnly = true;
+            this.TxtPath2.Size = new System.Drawing.Size(213, 20);
+            this.TxtPath2.TabIndex = 3;
+            // 
+            // TxtPath1
+            // 
+            this.TxtPath1.Location = new System.Drawing.Point(113, 57);
+            this.TxtPath1.Name = "TxtPath1";
+            this.TxtPath1.ReadOnly = true;
+            this.TxtPath1.Size = new System.Drawing.Size(213, 20);
+            this.TxtPath1.TabIndex = 2;
+            // 
+            // BtnDirectory2
+            // 
+            this.BtnDirectory2.Location = new System.Drawing.Point(350, 100);
+            this.BtnDirectory2.Name = "BtnDirectory2";
+            this.BtnDirectory2.Size = new System.Drawing.Size(110, 30);
+            this.BtnDirectory2.TabIndex = 1;
+            this.BtnDirectory2.Text = "Chose directory 2#";
+            this.BtnDirectory2.UseVisualStyleBackColor = true;
+            // 
+            // BtnDirectory1
+            // 
+            this.BtnDirectory1.Location = new System.Drawing.Point(350, 51);
+            this.BtnDirectory1.Name = "BtnDirectory1";
+            this.BtnDirectory1.Size = new System.Drawing.Size(110, 30);
+            this.BtnDirectory1.TabIndex = 0;
+            this.BtnDirectory1.Text = "Chose directory 1#";
+            this.BtnDirectory1.UseVisualStyleBackColor = true;
+            // 
+            // TxtFile2
+            // 
+            this.TxtFile2.Location = new System.Drawing.Point(242, 191);
+            this.TxtFile2.Multiline = true;
+            this.TxtFile2.Name = "TxtFile2";
+            this.TxtFile2.ReadOnly = true;
+            this.TxtFile2.Size = new System.Drawing.Size(218, 100);
+            this.TxtFile2.TabIndex = 8;
             // 
             // Main
             // 
@@ -567,6 +578,7 @@
     private System.Windows.Forms.TextBox TxtPath1;
     private System.Windows.Forms.Button BtnDirectory2;
     private System.Windows.Forms.Button BtnDirectory1;
-    private System.Windows.Forms.TextBox TxtFile;
+    private System.Windows.Forms.TextBox TxtFile1;
+    private System.Windows.Forms.TextBox TxtFile2;
 }
 

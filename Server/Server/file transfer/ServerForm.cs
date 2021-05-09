@@ -60,9 +60,10 @@ public partial class Main : Form
     {
         CompareFiles compare = new CompareFiles();
 
-        string text = compare.ReadFile(TxtPath1.Text);
-
-        TxtFile.Text += text; 
+        string text1 = compare.ReadFile(TxtPath1.Text);
+        string text2 = compare.ReadFile(TxtPath2.Text);
+        TxtFile1.Text += text1;
+        TxtFile2.Text += text2;
     }
 
     private void BtnDirectory2_Click(object sender, EventArgs e)

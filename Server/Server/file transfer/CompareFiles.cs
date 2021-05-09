@@ -8,8 +8,16 @@ namespace Server
 
         public string ReadFile(string pathFile1) //, string pathFile
         {
-           
-            string readText = File.ReadAllText(pathFile1);
+            string readText = null;
+            try
+            {
+                 readText = File.ReadAllText(pathFile1);
+                
+            }
+            catch (System.Exception)
+            {
+                readText = "Podano nieprawidłową ścieżkę";
+            }
 
             return readText;
         }
