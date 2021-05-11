@@ -67,6 +67,7 @@
             this.txtInfo = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.TxtFile2 = new System.Windows.Forms.TextBox();
             this.TxtFile1 = new System.Windows.Forms.TextBox();
             this.BtnCompare = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,7 +76,8 @@
             this.TxtPath1 = new System.Windows.Forms.TextBox();
             this.BtnDirectory2 = new System.Windows.Forms.Button();
             this.BtnDirectory1 = new System.Windows.Forms.Button();
-            this.TxtFile2 = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.TxtResult = new System.Windows.Forms.TextBox();
             this.menuTransfers.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -84,6 +86,7 @@
             this.toolStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuTransfers
@@ -169,6 +172,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabControl1.Location = new System.Drawing.Point(0, 12);
             this.tabControl1.Name = "tabControl1";
@@ -419,6 +423,15 @@
             this.tabPage3.Text = "Compare files";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // TxtFile2
+            // 
+            this.TxtFile2.Location = new System.Drawing.Point(242, 191);
+            this.TxtFile2.Multiline = true;
+            this.TxtFile2.Name = "TxtFile2";
+            this.TxtFile2.ReadOnly = true;
+            this.TxtFile2.Size = new System.Drawing.Size(218, 100);
+            this.TxtFile2.TabIndex = 8;
+            // 
             // TxtFile1
             // 
             this.TxtFile1.Location = new System.Drawing.Point(13, 191);
@@ -490,14 +503,24 @@
             this.BtnDirectory1.Text = "Chose directory 1#";
             this.BtnDirectory1.UseVisualStyleBackColor = true;
             // 
-            // TxtFile2
+            // tabPage4
             // 
-            this.TxtFile2.Location = new System.Drawing.Point(242, 191);
-            this.TxtFile2.Multiline = true;
-            this.TxtFile2.Name = "TxtFile2";
-            this.TxtFile2.ReadOnly = true;
-            this.TxtFile2.Size = new System.Drawing.Size(218, 100);
-            this.TxtFile2.TabIndex = 8;
+            this.tabPage4.Controls.Add(this.TxtResult);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(472, 294);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Result";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // TxtResult
+            // 
+            this.TxtResult.Location = new System.Drawing.Point(8, 19);
+            this.TxtResult.Multiline = true;
+            this.TxtResult.Name = "TxtResult";
+            this.TxtResult.ReadOnly = true;
+            this.TxtResult.Size = new System.Drawing.Size(456, 252);
+            this.TxtResult.TabIndex = 0;
             // 
             // Main
             // 
@@ -526,6 +549,8 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -580,5 +605,7 @@
     private System.Windows.Forms.Button BtnDirectory1;
     private System.Windows.Forms.TextBox TxtFile1;
     private System.Windows.Forms.TextBox TxtFile2;
+    private System.Windows.Forms.TabPage tabPage4;
+    private System.Windows.Forms.TextBox TxtResult;
 }
 

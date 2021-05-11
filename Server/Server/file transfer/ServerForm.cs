@@ -62,8 +62,10 @@ public partial class Main : Form
 
         string text1 = compare.ReadFile(TxtPath1.Text);
         string text2 = compare.ReadFile(TxtPath2.Text);
+        int wordCounter = compare.WordCount(text1);
         TxtFile1.Text += text1;
         TxtFile2.Text += text2;
+        TxtResult.Text += wordCounter;
     }
 
     private void BtnDirectory2_Click(object sender, EventArgs e)
