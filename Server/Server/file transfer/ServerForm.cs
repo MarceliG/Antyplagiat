@@ -52,7 +52,6 @@ public partial class Main : Form
         btnClearComplete.Click += new EventHandler(BtnClearComplete_Click);
         btnSend.Click += new EventHandler(BtnSend_Click);
         BtnDirectory1.Click += new EventHandler(BtnDirectory1_Click);
-        BtnDirectory2.Click += new EventHandler(BtnDirectory2_Click);
         BtnCompare.Click += new EventHandler(BtnCompare_Click);
 
 
@@ -64,28 +63,10 @@ public partial class Main : Form
         CompareFiles compare = new CompareFiles();
 
         string text1 = compare.ReadFile(TxtPath1.Text);
-        string text2 = compare.ReadFile(TxtPath2.Text);
-        int wordCounter = compare.WordCount(text1);
-        TxtFile1.Text += text1;
-        TxtFile2.Text += text2;
-        TxtResult.Text += wordCounter;
-
 
     }
 
-    private void BtnDirectory2_Click(object sender, EventArgs e)
-    {
-        using (OpenFileDialog file = new OpenFileDialog())
-        {
-            file.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-            file.Multiselect = true;
-
-            if (file.ShowDialog() == DialogResult.OK)
-            {
-                TxtPath2.Text = file.FileName;
-            }
-        }
-    }
+    
 
     private void BtnDirectory1_Click(object sender, EventArgs e)
     {

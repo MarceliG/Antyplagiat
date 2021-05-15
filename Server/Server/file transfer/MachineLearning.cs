@@ -13,10 +13,13 @@ namespace Server
     {
         static public void Learn()
         {
-            
-            string[] texts =
+
+
+
+            string[] texts = new string[2];
+            /*
                  {
-    @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas molestie malesuada 
+     @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas molestie malesuada 
       nisi et placerat. Curabitur blandit porttitor suscipit. Nunc facilisis ultrices felis,
       vitae luctus arcu semper in. Fusce ut felis ipsum. Sed faucibus tortor ut felis placerat
       euismod. Vestibulum pharetra velit et dolor ornare quis malesuada leo aliquam. Aenean 
@@ -31,7 +34,16 @@ namespace Server
       non urna non libero pulvinar consequat ac vitae turpis. Nam urna eros, laoreet id sagittis eu,
       posuere in sapien. Phasellus semper convallis faucibus. Nulla fermentum faucibus tellus in 
       rutrum. Maecenas quis risus augue, eu gravida massa."
-};
+                };
+            */
+            //string[] tekst = new string[2];
+            string path;
+            path = @"D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\ksiazki\Montaz_Jan_Felba.txt";
+            texts[0] = ReadText(path);
+            path = @"D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\ksiazki\Czysty_kod_Robert_Martin.txt";
+            texts[1] = ReadText(path);
+
+            // save every single word to table 
             string[][] words = texts.Tokenize();
 
             // Create a new TF-IDF with options:
@@ -54,22 +66,16 @@ namespace Server
             // Extract a feature vector from the text 2:
             double[] bow2 = codebook.Transform(words[1]);
 
-           
+            
         }
-
-        private string ReadText(string path) {
-            //path = @"D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\ksiazki\Montaz_Jan_Felba.txt";
-            string text = " ";
-            try
+        
+        static string ReadText(string path)
+        {
+            using (StreamReader Reader = new StreamReader(path))
             {
-                // Open the file to read from.
-                text = File.ReadAllText(path);
+                string fileContent = Reader.ReadToEnd();
+                return fileContent;
             }
-            catch (FileNotFoundException e)
-            {
-                Console.WriteLine("File not found", e.Source);
-            }
-            return text;
         }
     }
 }

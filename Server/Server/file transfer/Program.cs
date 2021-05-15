@@ -13,9 +13,8 @@ namespace Server
             Rand = new Random();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            MachineLearning.Learn(); // Learning
             Application.Run(new Main());
-
-          // wywołanie funkcji uczenia, podczas uruchomienia aplikacji MachineLearning.learn();
         }
     }
 }
