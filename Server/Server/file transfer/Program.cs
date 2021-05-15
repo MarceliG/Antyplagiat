@@ -14,6 +14,8 @@ namespace Server
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main());
+
+          // wywołanie funkcji uczenia, podczas uruchomienia aplikacji MachineLearning.learn();
         }
     }
 }

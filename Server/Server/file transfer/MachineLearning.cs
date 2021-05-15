@@ -3,6 +3,7 @@ using Accord.Statistics.Models.Regression;
 using Accord.Statistics.Models.Regression.Fitting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -10,8 +11,9 @@ namespace Server
 {
     class MachineLearning
     {
-        void Learn()
+        static public void Learn()
         {
+            
             string[] texts =
                  {
     @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas molestie malesuada 
@@ -52,29 +54,22 @@ namespace Server
             // Extract a feature vector from the text 2:
             double[] bow2 = codebook.Transform(words[1]);
 
-            // we could also have transformed everything at once, i.e.
-            // double[][] bow = codebook.Transform(words);
+           
+        }
 
-
-            // Now, since we have finite length representations (both bow1 and bow2 should
-            // have the same size), we can pass them to any classifier or machine learning
-            // method. For example, we can pass them to a Logistic Regression Classifier to
-            // discern between the first and second paragraphs
-
-            // Lets create a Logistic classifier to separate the two paragraphs:
-            var learner = new IterativeReweightedLeastSquares<LogisticRegression>()
+        private string ReadText(string path) {
+            //path = @"D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\ksiazki\Montaz_Jan_Felba.txt";
+            string text = " ";
+            try
             {
-                Tolerance = 1e-4,  // Let's set some convergence parameters
-                MaxIterations = 100,  // maximum number of iterations to perform
-                Regularization = 0
-            };
-
-            // Now, we use the learning algorithm to learn the distinction between the two:
-            LogisticRegression reg = learner.Learn(new[] { bow1, bow2 }, new[] { false, true });
-
-            // Finally, we can predict using the classifier:
-            bool c1 = reg.Decide(bow1); // Should be false
-            bool c2 = reg.Decide(bow2); // Should be true
+                // Open the file to read from.
+                text = File.ReadAllText(path);
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine("File not found", e.Source);
+            }
+            return text;
         }
     }
 }
