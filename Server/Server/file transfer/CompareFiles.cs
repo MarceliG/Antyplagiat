@@ -8,7 +8,7 @@ namespace Server
 
         public string ReadFile(string pathFile1) //, string pathFile
         {
-            string readText = null;
+            string readText;
             try
             {
                  readText = File.ReadAllText(pathFile1);
@@ -47,7 +47,11 @@ namespace Server
 
 
 
-
+      
 
     }
+
+
+
+
 }

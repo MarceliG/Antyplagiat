@@ -2,6 +2,9 @@
 using System.Windows.Forms;
 using System.IO;
 using Server;
+using Accord.MachineLearning;
+using Accord.Statistics.Models.Regression;
+using Accord.Statistics.Models.Regression.Fitting;
 
 public partial class Main : Form
 {
@@ -66,6 +69,8 @@ public partial class Main : Form
         TxtFile1.Text += text1;
         TxtFile2.Text += text2;
         TxtResult.Text += wordCounter;
+
+
     }
 
     private void BtnDirectory2_Click(object sender, EventArgs e)

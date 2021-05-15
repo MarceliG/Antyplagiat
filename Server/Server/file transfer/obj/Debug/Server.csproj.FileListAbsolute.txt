@@ -16,3 +16,15 @@ D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file tra
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.exe
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.pdb
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.csprojAssemblyReference.cache
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Accord.dll.config
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Accord.dll
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Accord.Math.Core.dll
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Accord.Math.dll
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Accord.Statistics.dll
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\nunit.framework.dll
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Accord.xml
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Accord.Math.xml
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Accord.Math.Core.xml
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Accord.Statistics.xml
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\nunit.framework.xml
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.csproj.CopyComplete
