@@ -60,8 +60,13 @@ public partial class Main : Form
 
     private void BtnCompare_Click(object sender, EventArgs e)
     {
-       
-
+        if (!string.IsNullOrEmpty(TxtPath1.Text)) {
+            //Do somethines
+        }
+        else
+        {
+            MessageBox.Show("Check if you enter the path correctly", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 
     
