@@ -60,9 +60,7 @@ public partial class Main : Form
 
     private void BtnCompare_Click(object sender, EventArgs e)
     {
-        CompareFiles compare = new CompareFiles();
-
-        string text1 = compare.ReadFile(TxtPath1.Text);
+       
 
     }
 

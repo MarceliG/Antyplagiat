@@ -1,26 +1,32 @@
 ﻿
-using System.IO;
+
+using Accord.MachineLearning;
 
 namespace Server
 {
     public class CompareFiles
     {
 
-        public string ReadFile(string pathFile1) //, string pathFile
+        /// <summary>
+        /// Gets a path file
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns>Convert to vectors every signle words on file</returns>
+        public double[] DoVector(string path)
         {
-            string readText;
-            try
-            {
-                 readText = File.ReadAllText(pathFile1);
-            }
-            catch (System.Exception)
-            {
-                readText = "Current path is incorrect";
-            }
+            string text = MachineLearning.ReadText(path);
+            string[] words = text.Tokenize();
 
-            return readText;
+            var codebook = new TFIDF()
+            {
+                Tf = TermFrequency.Log,
+                Idf = InverseDocumentFrequency.Default
+            };
+
+            double[] bow = codebook.Transform(words);
+
+            return bow;
         }
-
 
         public int WordCount(string text)
         {
@@ -46,8 +52,9 @@ namespace Server
         }
 
 
+        
 
-      
+
 
     }
 
