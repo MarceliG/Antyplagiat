@@ -66,6 +66,13 @@
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.txtInfo = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.TxtResult = new System.Windows.Forms.TextBox();
+            this.BtnCompare = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtPath1 = new System.Windows.Forms.TextBox();
+            this.BtnDirectory1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuTransfers.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -73,6 +80,7 @@
             this.toolStrip3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuTransfers
@@ -157,6 +165,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabControl1.Location = new System.Drawing.Point(0, 12);
             this.tabControl1.Name = "tabControl1";
@@ -389,6 +398,76 @@
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.TxtResult);
+            this.tabPage3.Controls.Add(this.BtnCompare);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Controls.Add(this.TxtPath1);
+            this.tabPage3.Controls.Add(this.BtnDirectory1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(472, 294);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Compare files";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // TxtResult
+            // 
+            this.TxtResult.Location = new System.Drawing.Point(20, 127);
+            this.TxtResult.Multiline = true;
+            this.TxtResult.Name = "TxtResult";
+            this.TxtResult.ReadOnly = true;
+            this.TxtResult.Size = new System.Drawing.Size(434, 164);
+            this.TxtResult.TabIndex = 7;
+            // 
+            // BtnCompare
+            // 
+            this.BtnCompare.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.BtnCompare.Location = new System.Drawing.Point(178, 86);
+            this.BtnCompare.Name = "BtnCompare";
+            this.BtnCompare.Size = new System.Drawing.Size(100, 35);
+            this.BtnCompare.TabIndex = 6;
+            this.BtnCompare.Text = "Analysys";
+            this.BtnCompare.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "File path:";
+            // 
+            // TxtPath1
+            // 
+            this.TxtPath1.Location = new System.Drawing.Point(73, 60);
+            this.TxtPath1.Name = "TxtPath1";
+            this.TxtPath1.ReadOnly = true;
+            this.TxtPath1.Size = new System.Drawing.Size(265, 20);
+            this.TxtPath1.TabIndex = 2;
+            // 
+            // BtnDirectory1
+            // 
+            this.BtnDirectory1.Location = new System.Drawing.Point(344, 54);
+            this.BtnDirectory1.Name = "BtnDirectory1";
+            this.BtnDirectory1.Size = new System.Drawing.Size(110, 30);
+            this.BtnDirectory1.TabIndex = 0;
+            this.BtnDirectory1.Text = "Chose directory";
+            this.BtnDirectory1.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(121, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(225, 20);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Check if the file is plagiarism";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,6 +493,8 @@
             this.toolStrip1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,5 +539,12 @@
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.TextBox txtMessage;
     private System.Windows.Forms.TextBox txtInfo;
+    private System.Windows.Forms.TabPage tabPage3;
+    private System.Windows.Forms.Button BtnCompare;
+    private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.TextBox TxtPath1;
+    private System.Windows.Forms.Button BtnDirectory1;
+    private System.Windows.Forms.TextBox TxtResult;
+    private System.Windows.Forms.Label label3;
 }
 

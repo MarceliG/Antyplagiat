@@ -2,6 +2,9 @@
 using System.Windows.Forms;
 using System.IO;
 using Server;
+using Accord.MachineLearning;
+using Accord.Statistics.Models.Regression;
+using Accord.Statistics.Models.Regression.Fitting;
 
 public partial class Main : Form
 {
@@ -48,12 +51,42 @@ public partial class Main : Form
         btnOpenDir.Click += new EventHandler(BtnOpenDir_Click);
         btnClearComplete.Click += new EventHandler(BtnClearComplete_Click);
         btnSend.Click += new EventHandler(BtnSend_Click);
-
+        BtnDirectory1.Click += new EventHandler(BtnDirectory1_Click);
+        BtnCompare.Click += new EventHandler(BtnCompare_Click);
 
 
         BtnStop.Enabled = false;
     }
 
+    private void BtnCompare_Click(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrEmpty(TxtPath1.Text)) {
+
+            CompareFiles.DoVector(TxtPath1.Text);
+
+        }
+        else
+        {
+            MessageBox.Show("Check if you enter the path correctly", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    
+
+    private void BtnDirectory1_Click(object sender, EventArgs e)
+    {
+        using (OpenFileDialog file = new OpenFileDialog())
+        {
+            file.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            file.Multiselect = true;
+
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                TxtPath1.Text = file.FileName;
+            }
+        }
+        
+    }
 
 
     protected override void OnFormClosing(FormClosingEventArgs e)
