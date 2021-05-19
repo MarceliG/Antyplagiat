@@ -61,7 +61,9 @@ public partial class Main : Form
     private void BtnCompare_Click(object sender, EventArgs e)
     {
         if (!string.IsNullOrEmpty(TxtPath1.Text)) {
-            //Do somethines
+
+            CompareFiles.DoVector(TxtPath1.Text);
+
         }
         else
         {

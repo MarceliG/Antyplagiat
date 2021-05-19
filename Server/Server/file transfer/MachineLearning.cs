@@ -5,13 +5,16 @@ namespace Server
 {
 
 
-    class MachineLearning
+    static public class MachineLearning
     {
-        //public struct  Codebook = new TFIDF()
-        //{
-        //    Tf = TermFrequency.Log,
-        //    Idf = InverseDocumentFrequency.Default
-        //};
+        
+        static public TFIDF codebook = new TFIDF()
+        {
+            Tf = TermFrequency.Log,
+            Idf = InverseDocumentFrequency.Default
+        };
+        static public double[] bow1;
+        static public double[] bow2;
 
         static public void Learn()
         {
@@ -29,11 +32,11 @@ namespace Server
             string[][] words = texts.Tokenize();
 
 
-            var codebook = new TFIDF()
-            {
-                Tf = TermFrequency.Log,
-                Idf = InverseDocumentFrequency.Default
-            };
+            //var codebook = new TFIDF()
+            //{
+            //    Tf = TermFrequency.Log,
+            //    Idf = InverseDocumentFrequency.Default
+            //};
 
             // Compute the codebook (note: this would have to be done only for the training set)
             codebook.Learn(words);
@@ -43,11 +46,15 @@ namespace Server
             // representations of the different texts (paragraphs) above:
 
             // Extract a feature vector from the text 1:
-            double[] bow1 = codebook.Transform(words[0]);
+            bow1 = codebook.Transform(words[0]);
 
             // Extract a feature vector from the text 2:
-            double[] bow2 = codebook.Transform(words[1]);
+            bow2 = codebook.Transform(words[1]);
+
+            
         }
+
+      
 
         public static string ReadText(string path)
         {
@@ -58,6 +65,7 @@ namespace Server
             }
         }
 
+     
         
     }
 }

@@ -6,26 +6,20 @@ namespace Server
 {
     public class CompareFiles
     {
-
+        static public double[] bow3;
+        
         /// <summary>
         /// Gets a path file
         /// </summary>
         /// <param name="path"></param>
         /// <returns>Convert to vectors every signle words on file</returns>
-        public double[] DoVector(string path)
+        static public void DoVector(string path)
         {
             string text = MachineLearning.ReadText(path);
             string[] words = text.Tokenize();
-
-            var codebook = new TFIDF()
-            {
-                Tf = TermFrequency.Log,
-                Idf = InverseDocumentFrequency.Default
-            };
-
-            double[] bow = codebook.Transform(words);
-
-            return bow;
+            
+            bow3 = MachineLearning.codebook.Transform(words);
+            
         }
 
         public int WordCount(string text)
