@@ -62,7 +62,7 @@ public partial class Main : Form
     {
         if (!string.IsNullOrEmpty(TxtPath1.Text)) {
 
-            CompareFiles.DoVector(TxtPath1.Text);
+            MachineLearning.DoVector(TxtPath1.Text);
 
         }
         else
