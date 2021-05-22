@@ -65,3 +65,4 @@ D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file tra
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Lucene.Net.Contrib.Snowball.xml
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Lucene.Net.Contrib.SpellChecker.pdb
 D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\bin\Debug\Lucene.Net.Contrib.SpellChecker.xml
+D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\Server\Server\file transfer\obj\Debug\Server.csprojAssemblyReference.cache

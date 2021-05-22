@@ -7,14 +7,15 @@ namespace Server
 
     static public class MachineLearning
     {
-        
-        static public TFIDF codebook = new TFIDF()
+        static public double[] bow1;
+        static public double[] bow2;
+        static public double[] bow3;
+
+        static private TFIDF codebook = new TFIDF()
         {
             Tf = TermFrequency.Log,
             Idf = InverseDocumentFrequency.Default
         };
-        static public double[] bow1;
-        static public double[] bow2;
 
         static public void Learn()
         {
@@ -54,8 +55,12 @@ namespace Server
             
         }
 
-      
 
+        /// <summary>
+        /// Gets a path file and read text
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns>Read file on one string</returns>
         public static string ReadText(string path)
         {
             using (StreamReader Reader = new StreamReader(path))
@@ -65,7 +70,20 @@ namespace Server
             }
         }
 
-     
-        
+
+        /// <summary>
+        /// Gets a path file and make vectors
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns>Convert to vectors every signle words on file</returns>
+        static public void DoVector(string path)
+        {
+            string text = ReadText(path);
+            string[] words = text.Tokenize();
+
+            bow3 = codebook.Transform(words);
+
+        }
+
     }
 }
