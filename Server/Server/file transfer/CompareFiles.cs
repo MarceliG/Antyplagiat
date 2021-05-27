@@ -32,10 +32,12 @@ namespace Server
         }
 
 
-        static public double IsItSimilar()
+        static public long[] IsItSimilar()
         {
             int lenghtBow = MachineLearning.bow1.Length;
-            int similar = 0;
+            long[] table = new long[2];
+            long similar = 0;
+            long allVectors = 0;
             double distance;
             // Euclidean space
             for (int i = 0; i < lenghtBow; i++)
@@ -43,20 +45,32 @@ namespace Server
                 for (int j = 0; j < lenghtBow; j++)
                 {
                     distance = Math.Sqrt(Math.Pow(MachineLearning.bow3[i] - MachineLearning.bow1[j], 2));
-                    if (distance == 0) { continue; }
-                    if (distance <= 0.3)
+                    if (distance == 0) {
+                        continue;
+                    }
+                    allVectors++;
+                    if (distance <= 0.1)
                     {
-                        
-                        // if true increase
-                        similar++;
-                        
+                    similar++;
                     }
                 }
             }
-            return similar;
+            table[0] = allVectors;
+            table[1] = similar;
+            return table;
             //return similar;
         }
 
+        static public float CalculatePercentage(long allVectors, long similar)
+        {
+            float percentage = -1.0f;
+
+            if(similar != 0)
+            {
+                percentage = (similar / allVectors) * 100;
+            }
+            return percentage;
+        }
 
 
     }

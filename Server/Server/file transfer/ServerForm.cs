@@ -50,7 +50,6 @@ public partial class Main : Form
         btnStopTransfer.Click += new EventHandler(BtnStopTransfer_Click);
         btnOpenDir.Click += new EventHandler(BtnOpenDir_Click);
         btnClearComplete.Click += new EventHandler(BtnClearComplete_Click);
-        btnSend.Click += new EventHandler(BtnSend_Click);
         BtnDirectory1.Click += new EventHandler(BtnDirectory1_Click);
         BtnCompare.Click += new EventHandler(BtnCompare_Click);
 
@@ -60,10 +59,21 @@ public partial class Main : Form
 
     private void BtnCompare_Click(object sender, EventArgs e)
     {
-        if (!string.IsNullOrEmpty(TxtPath1.Text)) {
-
+        if (!string.IsNullOrEmpty(TxtPath1.Text))
+        {
+            TxtResult.Clear();
             MachineLearning.DoVector(TxtPath1.Text);
-            TxtResult.Text += CompareFiles.IsItSimilar();
+            long[] similarites = new long[2];
+            
+            similarites = CompareFiles.IsItSimilar();
+            float percentage = CompareFiles.CalculatePercentage(similarites[0], similarites[1]);
+           // percentage = (float)Math.Round(percentage, 2);
+
+            TxtResult.Text = "Wszystkie wyliczone skojarzenia: " + similarites[0] + "\r\nPodobieństwa: " + similarites[1] + "\r\nProcent podobieństwa: " + percentage + "%";
+
+
+
+
         }
         else
         {
@@ -182,7 +192,6 @@ public partial class Main : Form
     private void RegisterEvents()
     {
         transferClient.Complete += TransferClient_Complete;
-        //transferClient.Disconnected += transferClient_Disconnected;
         transferClient.ProgressChanged += TransferClient_ProgressChanged;
         transferClient.Queued += TransferClient_Queued;
         transferClient.Stopped += TransferClient_Stopped;
@@ -252,7 +261,6 @@ public partial class Main : Form
         if (transferClient == null)
             return;
         transferClient.Complete -= TransferClient_Complete;
-        //transferClient.Disconnected -= transferClient_Disconnected;
         transferClient.ProgressChanged -= TransferClient_ProgressChanged;
         transferClient.Queued -= TransferClient_Queued;
         transferClient.Stopped -= TransferClient_Stopped;
@@ -278,9 +286,6 @@ public partial class Main : Form
             //Enable/Disable the server buttons.
             BtnStart.Enabled = false;
             BtnStop.Enabled = true;
-            btnSend.Enabled = true;
-            txtInfo.Text += $"Starting ...{Environment.NewLine}";
-
         }
         catch
         {
@@ -311,7 +316,6 @@ public partial class Main : Form
         serverRunning = false;
         BtnStart.Enabled = true;
         BtnStop.Enabled = false;
-        txtInfo.Text += $"Stopped{Environment.NewLine}";
     }
 
     private void BtnClearComplete_Click(object sender, EventArgs e)
@@ -395,21 +399,4 @@ public partial class Main : Form
         progressOverall.Value = 0;
     }
 
-
-    private void BtnSend_Click(object sender, EventArgs e)
-    {
-
-        if (transferClient == null)
-            return;
-
-        if (!string.IsNullOrEmpty(txtMessage.Text))
-        {
-            transferClient.SendMessage(txtMessage.Text);
-        }
-    }
-
-    private void Main_Load(object sender, EventArgs e)
-    {
-        btnSend.Enabled = false;
-    }
 }
