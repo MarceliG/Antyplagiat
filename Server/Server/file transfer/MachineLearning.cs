@@ -32,13 +32,6 @@ namespace Server
             // save every single word to table 
             string[][] words = texts.Tokenize();
 
-
-            //var codebook = new TFIDF()
-            //{
-            //    Tf = TermFrequency.Log,
-            //    Idf = InverseDocumentFrequency.Default
-            //};
-
             // Compute the codebook (note: this would have to be done only for the training set)
             codebook.Learn(words);
            

@@ -1,26 +1,12 @@
 ﻿
 
 using Accord.MachineLearning;
+using System;
 
 namespace Server
 {
     public class CompareFiles
     {
-        //static public double[] bow3;
-        
-        ///// <summary>
-        ///// Gets a path file
-        ///// </summary>
-        ///// <param name="path"></param>
-        ///// <returns>Convert to vectors every signle words on file</returns>
-        //static public void DoVector(string path)
-        //{
-        //    string text = MachineLearning.ReadText(path);
-        //    string[] words = text.Tokenize();
-            
-        //    bow3 = MachineLearning.codebook.Transform(words);
-            
-        //}
 
         public int WordCount(string text)
         {
@@ -46,17 +32,29 @@ namespace Server
         }
 
 
-        public void DistanceVectors()
+        static public double IsItSimilar()
         {
-            int lenghtBow1 = MachineLearning.bow1.Length;
-            int lenghtBow2 = MachineLearning.bow2.Length;
-            int lenghtBow3 = MachineLearning.bow3.Length;
-
+            int lenghtBow = MachineLearning.bow1.Length;
+            int similar = 0;
+            double distance;
             // Euclidean space
-            //for (int i = 0; i < length; i++)
-            //{
-
-            //}
+            for (int i = 0; i < lenghtBow; i++)
+            {
+                for (int j = 0; j < lenghtBow; j++)
+                {
+                    distance = Math.Sqrt(Math.Pow(MachineLearning.bow3[i] - MachineLearning.bow1[j], 2));
+                    if (distance == 0) { continue; }
+                    if (distance <= 0.3)
+                    {
+                        
+                        // if true increase
+                        similar++;
+                        
+                    }
+                }
+            }
+            return similar;
+            //return similar;
         }
 
 

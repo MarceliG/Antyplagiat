@@ -61,25 +61,19 @@
             this.BtnStart = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.BtnStop = new System.Windows.Forms.ToolStripButton();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtMessage = new System.Windows.Forms.TextBox();
-            this.txtInfo = new System.Windows.Forms.TextBox();
-            this.btnSend = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.TxtResult = new System.Windows.Forms.TextBox();
             this.BtnCompare = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtPath1 = new System.Windows.Forms.TextBox();
             this.BtnDirectory1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.menuTransfers.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,7 +158,6 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabControl1.Location = new System.Drawing.Point(0, 12);
@@ -346,58 +339,6 @@
             this.BtnStop.Size = new System.Drawing.Size(100, 22);
             this.BtnStop.Text = "Stop";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.txtMessage);
-            this.tabPage2.Controls.Add(this.txtInfo);
-            this.tabPage2.Controls.Add(this.btnSend);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(472, 294);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Communication with clients";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(11, 205);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 15);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Message:";
-            // 
-            // txtMessage
-            // 
-            this.txtMessage.Location = new System.Drawing.Point(78, 204);
-            this.txtMessage.Multiline = true;
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtMessage.Size = new System.Drawing.Size(386, 55);
-            this.txtMessage.TabIndex = 3;
-            // 
-            // txtInfo
-            // 
-            this.txtInfo.Location = new System.Drawing.Point(8, 6);
-            this.txtInfo.Multiline = true;
-            this.txtInfo.Name = "txtInfo";
-            this.txtInfo.ReadOnly = true;
-            this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtInfo.Size = new System.Drawing.Size(456, 192);
-            this.txtInfo.TabIndex = 2;
-            // 
-            // btnSend
-            // 
-            this.btnSend.Location = new System.Drawing.Point(302, 265);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(167, 23);
-            this.btnSend.TabIndex = 1;
-            this.btnSend.Text = "Send";
-            this.btnSend.UseVisualStyleBackColor = true;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.label3);
@@ -412,6 +353,16 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Compare files";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(121, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(225, 20);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Check if the file is plagiarism";
             // 
             // TxtResult
             // 
@@ -458,16 +409,6 @@
             this.BtnDirectory1.Text = "Chose directory";
             this.BtnDirectory1.UseVisualStyleBackColor = true;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(121, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(225, 20);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Check if the file is plagiarism";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,8 +432,6 @@
             this.toolStrip3.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -534,11 +473,6 @@
     private System.Windows.Forms.ToolStripButton BtnStart;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     private System.Windows.Forms.ToolStripButton BtnStop;
-    private System.Windows.Forms.TabPage tabPage2;
-    private System.Windows.Forms.Button btnSend;
-    private System.Windows.Forms.Label label1;
-    private System.Windows.Forms.TextBox txtMessage;
-    private System.Windows.Forms.TextBox txtInfo;
     private System.Windows.Forms.TabPage tabPage3;
     private System.Windows.Forms.Button BtnCompare;
     private System.Windows.Forms.Label label2;
