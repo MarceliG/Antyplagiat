@@ -369,9 +369,9 @@
             this.TxtResult.Location = new System.Drawing.Point(20, 127);
             this.TxtResult.Multiline = true;
             this.TxtResult.Name = "TxtResult";
-            this.TxtResult.ReadOnly = true;
             this.TxtResult.Size = new System.Drawing.Size(434, 164);
             this.TxtResult.TabIndex = 7;
+            this.TxtResult.Text = "\r\n";
             // 
             // BtnCompare
             // 
@@ -421,7 +421,6 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Server";
-            this.Load += new System.EventHandler(this.Main_Load);
             this.menuTransfers.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
