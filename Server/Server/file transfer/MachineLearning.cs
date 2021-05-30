@@ -1,4 +1,5 @@
 ﻿using Accord.MachineLearning;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Server
@@ -7,9 +8,8 @@ namespace Server
 
     static public class MachineLearning
     {
-        static public double[] bow1;
-        static public double[] bow2;
-        static public double[] bow3;
+        static public double[][] bookVectors;
+        static public double[] clientBookVector;
 
         static private TFIDF codebook = new TFIDF()
         {
@@ -20,32 +20,36 @@ namespace Server
         static public void Learn()
         {
             // create empty table
-            string[] texts = new string[2];
+            //string[] texts = new string[2];
 
             // Read text
-            string path;
-            path = @"D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\ksiazki\Montaz_Jan_Felba.txt";
-            texts[0] = ReadText(path);
-            path = @"D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\ksiazki\Czysty_kod_Robert_Martin.txt";
-            texts[1] = ReadText(path);
+            //string path;
+            //path = @"D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\ksiazki\Montaz_Jan_Felba.txt";
+            //texts[0] = ReadText(path);
+            //path = @"D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\ksiazki\Czysty_kod_Robert_Martin.txt";
+            //texts[1] = ReadText(path);
+
+            Book[] books = CSV.ReadCSV();
+            List<string> texts = new List<string>();
+            string[] textsTab;
+            foreach (var book in books)
+            {
+                texts.Add(book.Summary);
+            }
+            //Convert list to Array
+            textsTab = texts.ToArray();
 
             // save every single word to table 
-            string[][] words = texts.Tokenize();
+            string[][] words = textsTab.Tokenize();
 
             // Compute the codebook (note: this would have to be done only for the training set)
             codebook.Learn(words);
-           
-                
+
+
             // Now, we can use the learned codebook to extract fixed-length
             // representations of the different texts (paragraphs) above:
 
-            // Extract a feature vector from the text 1:
-            bow1 = codebook.Transform(words[0]);
-
-            // Extract a feature vector from the text 2:
-            bow2 = codebook.Transform(words[1]);
-
-            
+            bookVectors = codebook.Transform(words);
         }
 
 
@@ -54,7 +58,7 @@ namespace Server
         /// </summary>
         /// <param name="path"></param>
         /// <returns>Read file on one string</returns>
-        public static string ReadText(string path)
+        static public string ReadText(string path)
         {
             using (StreamReader Reader = new StreamReader(path))
             {
@@ -74,9 +78,17 @@ namespace Server
             string text = ReadText(path);
             string[] words = text.Tokenize();
 
-            bow3 = codebook.Transform(words);
+            clientBookVector = codebook.Transform(words);
 
         }
+        //static public void DoVector()
+        //{
+        //    string path = @"D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\ksiazki\Montaz_Jan_Felba.txt";
+        //    string text = ReadText(path);
+        //    string[] words = text.Tokenize();
 
+        //    clientBookVector = codebook.Transform(words);
+
+        //}
     }
 }

@@ -63,14 +63,17 @@ public partial class Main : Form
         {
             TxtResult.Clear();
             MachineLearning.DoVector(TxtPath1.Text);
-            long[] similarites = new long[2];
+            //MachineLearning.DoVector();
+            double[] similarites = new double[2];
             
             similarites = CompareFiles.IsItSimilar();
-            float percentage = CompareFiles.CalculatePercentage(similarites[0], similarites[1]);
-           // percentage = (float)Math.Round(percentage, 2);
+            //float percentage = CompareFiles.CalculatePercentage(similarites[0], similarites[1], similarites[2]);
+            // percentage = (float)Math.Round(percentage, 2);
 
-            TxtResult.Text = "Wszystkie wyliczone skojarzenia: " + similarites[0] + "\r\nPodobieństwa: " + similarites[1] + "\r\nProcent podobieństwa: " + percentage + "%";
-
+            //TxtResult.Text = "Wszystkie wyliczone skojarzenia: " + similarites[0] + "\r\nPodobieństwa: " + similarites[1] + "\r\nIdentyczne wyrażenia: " + similarites[2] + "\r\nProcent podobieństwa: " + percentage + "%";
+           
+            
+            TxtResult.Text = "cosinus: " + string.Join(" ", similarites);
 
 
 

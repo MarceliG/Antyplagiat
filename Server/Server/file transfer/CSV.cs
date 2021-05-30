@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace Server
+{
+    public class CSV
+    {
+
+        static public Book[] ReadCSV()
+        {
+            StreamReader reader = new StreamReader(File.OpenRead(@"D:\STUDIA\Programowanie obiektowe\booksummaries\booksummaries\booksummaries.txt"));
+            List<Book> books = new List<Book>();
+            int ileKsiazke = 0;
+            while (!reader.EndOfStream && ileKsiazke < 100)
+            {
+                ileKsiazke++;
+                string line = reader.ReadLine();
+                if (!String.IsNullOrWhiteSpace(line))
+                {
+                    string[] values = line.Split('\t');
+                    Book book = new Book(values[2], values[6]);
+                    books.Add(book);
+                }
+            }
+
+            Book[] booksTab = books.ToArray();
+
+            return booksTab;
+
+        }
+
+    }
+    public class Book
+    {
+        public string Title { get; }
+        public string Summary { get; }
+
+        public Book(string title, string summary)
+        {
+            Title = title;
+            Summary = summary;
+        }
+    }
+
+}
