@@ -13,8 +13,10 @@ namespace Server
 
         static private TFIDF codebook = new TFIDF()
         {
+            
             Tf = TermFrequency.Log,
             Idf = InverseDocumentFrequency.Default
+           
         };
 
         static public void Learn()

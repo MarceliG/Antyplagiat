@@ -369,6 +369,7 @@
             this.TxtResult.Location = new System.Drawing.Point(20, 127);
             this.TxtResult.Multiline = true;
             this.TxtResult.Name = "TxtResult";
+            this.TxtResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TxtResult.Size = new System.Drawing.Size(434, 164);
             this.TxtResult.TabIndex = 7;
             this.TxtResult.Text = "\r\n";

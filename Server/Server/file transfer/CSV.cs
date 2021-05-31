@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,11 @@ namespace Server
 
         static public Book[] ReadCSV()
         {
+            
             StreamReader reader = new StreamReader(File.OpenRead(@"D:\STUDIA\Programowanie obiektowe\booksummaries\booksummaries\booksummaries.txt"));
             List<Book> books = new List<Book>();
             int ileKsiazke = 0;
-            while (!reader.EndOfStream && ileKsiazke < 100)
+            while (!reader.EndOfStream && ileKsiazke < 5000) // wczytaj tylko 100 książek 
             {
                 ileKsiazke++;
                 string line = reader.ReadLine();
@@ -25,7 +27,7 @@ namespace Server
                     books.Add(book);
                 }
             }
-
+           
             Book[] booksTab = books.ToArray();
 
             return booksTab;
