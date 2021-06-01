@@ -19,9 +19,12 @@ public partial class Main : Form
     //This is our variable to determine of the server is running or not to accept another connection if our client
     //Disconnects
     private bool serverRunning;
+    private MachineLearning machineLearning = new MachineLearning();
 
     public Main()
     {
+        machineLearning.Learn();
+        
         InitializeComponent();
         //Create the listener and register the event.
         listener = new Listener();
@@ -62,17 +65,18 @@ public partial class Main : Form
         if (!string.IsNullOrEmpty(TxtPath1.Text))
         {
             TxtResult.Clear();
-            MachineLearning.DoVector(TxtPath1.Text);
-            //MachineLearning.DoVector();
-            double[] similarites = new double[2];
 
-            //similarites = CompareFiles.IsItSimilar();
+            machineLearning.DoVector(TxtPath1.Text);
 
-            double time = CompareFiles.IsItSimilar();
+            int[] similarites = new int[3];
+
+            similarites = CompareFiles.IsItSimilar(machineLearning);
+
+           // double time = CompareFiles.IsItSimilar();
 
 
             //TxtResult.Text = "cosinus: " + string.Join(" ", similarites);
-            TxtResult.Text = "Czas: " + time;
+            TxtResult.Text = "Podobne: " + similarites[0] + "\r\nPrzeciwne: " + similarites[1] + "\r\nWszyskie: " + similarites[2];
 
 
         }

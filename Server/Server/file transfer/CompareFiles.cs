@@ -2,42 +2,48 @@
 using Accord.Math;
 using System;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace Server
 {
     public class CompareFiles
     {
 
-        static public double IsItSimilar()
+        static public int[] IsItSimilar(MachineLearning machineLearning)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-
-            double[] similary = new double[MachineLearning.bookVectors.Length];
-            for (int i = 0; i < MachineLearning.bookVectors.Length; i++)
+            //Stopwatch stopwatch = new Stopwatch();
+            //stopwatch.Start();
+            double value = 0.0;
+            int opposite = 0;
+            int similar = 0;
+            int allNumbers = 0;
+            Cosine cos = new Cosine();
+            int[] similarities = new int[3];
+            for (int i = 0; i < machineLearning.bookVectors.Length; i++)
             {
                 // cosine similarity
-                Cosine cos = new Cosine();
-                similary[i] = cos.Similarity(MachineLearning.bookVectors[i], MachineLearning.clientBookVector);
+                value = cos.Similarity(machineLearning.bookVectors[i], machineLearning.clientBookVector);
+
+                if (value >= 0.6)
+                {
+                    similar++;
+                    Console.WriteLine(machineLearning.books[i].Title);
+                }
+                else
+                {
+                    opposite++;
+                }
             }
-            stopwatch.Stop();
+            //stopwatch.Stop();
+            allNumbers = similar + opposite;
+            similarities[0] = similar;
+            similarities[1] = opposite;
+            similarities[2] = allNumbers;
 
-            double time = stopwatch.ElapsedMilliseconds;
-            return time; 
-            //return similary;
+
+            // double time = stopwatch.ElapsedMilliseconds;
+            return similarities; 
         }
-
-        //static public float CalculatePercentage(long allVectors, long similar, long theSame)
-        //{
-        //    float percentage = -1.0f;
-
-        //    if (allVectors != 0)
-        //    {
-        //        percentage = (((float)similar + (float)theSame) / (float)allVectors) * 100;
-        //    }
-        //    return percentage;
-        //}
-
 
     }
 }

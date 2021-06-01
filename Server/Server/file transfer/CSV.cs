@@ -22,8 +22,8 @@ namespace Server
                 string line = reader.ReadLine();
                 if (!String.IsNullOrWhiteSpace(line))
                 {
-                    string[] values = line.Split('\t');
-                    Book book = new Book(values[2], values[6]);
+                    string[] values = line.Split('\t');     
+                    Book book = new Book(values[2], values[6]); // 
                     books.Add(book);
                 }
             }

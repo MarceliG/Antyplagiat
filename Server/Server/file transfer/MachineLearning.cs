@@ -6,32 +6,22 @@ namespace Server
 {
 
 
-    static public class MachineLearning
+    public class MachineLearning
     {
-        static public double[][] bookVectors;
-        static public double[] clientBookVector;
+        public double[][] bookVectors;
+        public double[] clientBookVector;
+        public Book[] books = CSV.ReadCSV();
 
-        static private TFIDF codebook = new TFIDF()
+        private TFIDF codebook = new TFIDF()
         {
-            
             Tf = TermFrequency.Log,
             Idf = InverseDocumentFrequency.Default
-           
         };
 
-        static public void Learn()
-        {
-            // create empty table
-            //string[] texts = new string[2];
 
-            // Read text
-            //string path;
-            //path = @"D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\ksiazki\Montaz_Jan_Felba.txt";
-            //texts[0] = ReadText(path);
-            //path = @"D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\ksiazki\Czysty_kod_Robert_Martin.txt";
-            //texts[1] = ReadText(path);
-
-            Book[] books = CSV.ReadCSV();
+        public void Learn()
+        {  
+            
             List<string> texts = new List<string>();
             string[] textsTab;
             foreach (var book in books)
@@ -75,22 +65,13 @@ namespace Server
         /// </summary>
         /// <param name="path"></param>
         /// <returns>Convert to vectors every signle words on file</returns>
-        static public void DoVector(string path)
+        public void DoVector(string path)
         {
             string text = ReadText(path);
             string[] words = text.Tokenize();
 
             clientBookVector = codebook.Transform(words);
-
         }
-        //static public void DoVector()
-        //{
-        //    string path = @"D:\STUDIA\Programowanie obiektowe\Antyplagiat\Antyplagiat\ksiazki\Montaz_Jan_Felba.txt";
-        //    string text = ReadText(path);
-        //    string[] words = text.Tokenize();
-
-        //    clientBookVector = codebook.Transform(words);
-
-        //}
+      
     }
 }
