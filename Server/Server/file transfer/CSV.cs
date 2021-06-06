@@ -12,8 +12,10 @@ namespace Server
 
         static public Book[] ReadCSV()
         {
-            
-            StreamReader reader = new StreamReader(File.OpenRead(@"D:\STUDIA\Programowanie obiektowe\booksummaries\booksummaries\booksummaries.txt"));
+            string path = Directory.GetCurrentDirectory();
+            path += @"\booksummaries.txt";
+
+            StreamReader reader = new StreamReader(File.OpenRead(path));
             List<Book> books = new List<Book>();
             int ileKsiazke = 0;
             while (!reader.EndOfStream && ileKsiazke < 5000) // wczytaj tylko 100 książek 

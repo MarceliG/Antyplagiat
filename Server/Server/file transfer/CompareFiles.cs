@@ -17,16 +17,18 @@ namespace Server
             int opposite = 0;
             int similar = 0;
             int allNumbers = 0;
+            int title = -1;
             Cosine cos = new Cosine();
-            int[] similarities = new int[3];
+            int[] similarities = new int[4];
             for (int i = 0; i < machineLearning.bookVectors.Length; i++)
             {
                 // cosine similarity
                 value = cos.Similarity(machineLearning.bookVectors[i], machineLearning.clientBookVector);
 
-                if (value >= 0.6)
+                if (value >= 0.5)
                 {
                     similar++;
+                    title = i;
                     Console.WriteLine(machineLearning.books[i].Title);
                 }
                 else
@@ -39,7 +41,7 @@ namespace Server
             similarities[0] = similar;
             similarities[1] = opposite;
             similarities[2] = allNumbers;
-
+            similarities[3] = title;
 
             // double time = stopwatch.ElapsedMilliseconds;
             return similarities; 
