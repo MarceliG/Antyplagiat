@@ -55,29 +55,22 @@
             this.btnPauseTransfer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnClearComplete = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblConnected = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.progressOverall = new System.Windows.Forms.ToolStripProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtMessage = new System.Windows.Forms.TextBox();
-            this.txtInfo = new System.Windows.Forms.TextBox();
-            this.BtnSend = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuTransfers.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(0, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -293,20 +286,6 @@
             this.btnClearComplete.Size = new System.Drawing.Size(156, 22);
             this.btnClearComplete.Text = "Clear Complete";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.txtMessage);
-            this.tabPage2.Controls.Add(this.txtInfo);
-            this.tabPage2.Controls.Add(this.BtnSend);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(469, 294);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Communication with server";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -345,44 +324,6 @@
             this.progressOverall.Size = new System.Drawing.Size(100, 16);
             this.progressOverall.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(7, 205);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 15);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Message:";
-            // 
-            // txtMessage
-            // 
-            this.txtMessage.Location = new System.Drawing.Point(74, 204);
-            this.txtMessage.Multiline = true;
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtMessage.Size = new System.Drawing.Size(386, 55);
-            this.txtMessage.TabIndex = 7;
-            // 
-            // txtInfo
-            // 
-            this.txtInfo.Location = new System.Drawing.Point(4, 6);
-            this.txtInfo.Multiline = true;
-            this.txtInfo.Name = "txtInfo";
-            this.txtInfo.ReadOnly = true;
-            this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtInfo.Size = new System.Drawing.Size(456, 192);
-            this.txtInfo.TabIndex = 6;
-            // 
-            // BtnSend
-            // 
-            this.BtnSend.Location = new System.Drawing.Point(298, 265);
-            this.BtnSend.Name = "BtnSend";
-            this.BtnSend.Size = new System.Drawing.Size(167, 23);
-            this.BtnSend.TabIndex = 5;
-            this.BtnSend.Text = "Send";
-            this.BtnSend.UseVisualStyleBackColor = true;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,8 +344,6 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.menuTransfers.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -434,7 +373,6 @@
     private System.Windows.Forms.ToolStripMenuItem btnPauseTransfer;
     private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     private System.Windows.Forms.ToolStripMenuItem btnClearComplete;
-    private System.Windows.Forms.TabPage tabPage2;
     private System.Windows.Forms.StatusStrip statusStrip1;
     private System.Windows.Forms.ToolStripStatusLabel lblConnected;
     private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
@@ -447,9 +385,5 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     private System.Windows.Forms.ToolStripButton btnDisconnect;
-    private System.Windows.Forms.Label label1;
-    private System.Windows.Forms.TextBox txtMessage;
-    private System.Windows.Forms.TextBox txtInfo;
-    private System.Windows.Forms.Button BtnSend;
 }
 
