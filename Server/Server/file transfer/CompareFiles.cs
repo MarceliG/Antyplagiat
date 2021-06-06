@@ -1,81 +1,51 @@
-﻿
-
-using Accord.MachineLearning;
+﻿using Accord.Math.Distances;
+using Accord.Math;
 using System;
+using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace Server
 {
     public class CompareFiles
     {
 
-        public int WordCount(string text)
+        static public int[] IsItSimilar(MachineLearning machineLearning)
         {
-            int wordCount = 0, index = 0;
-
-            // skip whitespace until first word
-            while (index < text.Length && char.IsWhiteSpace(text[index]))
-                index++;
-
-            while (index < text.Length)
+            //Stopwatch stopwatch = new Stopwatch();
+            //stopwatch.Start();
+            double value = 0.0;
+            int opposite = 0;
+            int similar = 0;
+            int allNumbers = 0;
+            int title = -1;
+            Cosine cos = new Cosine();
+            int[] similarities = new int[4];
+            for (int i = 0; i < machineLearning.bookVectors.Length; i++)
             {
-                // check if current char is part of a word
-                while (index < text.Length && !char.IsWhiteSpace(text[index]))
-                    index++;
+                // cosine similarity
+                value = cos.Similarity(machineLearning.bookVectors[i], machineLearning.clientBookVector);
 
-                wordCount++;
-
-                // skip whitespace until next word
-                while (index < text.Length && char.IsWhiteSpace(text[index]))
-                    index++;
-            }
-            return wordCount;
-        }
-
-
-        static public long[] IsItSimilar()
-        {
-            int lenghtBow = MachineLearning.bow1.Length;
-            long[] table = new long[2];
-            long similar = 0;
-            long allVectors = 0;
-            double distance;
-            // Euclidean space
-            for (int i = 0; i < lenghtBow; i++)
-            {
-                for (int j = 0; j < lenghtBow; j++)
+                if (value >= 0.5)
                 {
-                    distance = Math.Sqrt(Math.Pow(MachineLearning.bow3[i] - MachineLearning.bow1[j], 2));
-                    if (distance == 0) {
-                        continue;
-                    }
-                    allVectors++;
-                    if (distance <= 0.1)
-                    {
                     similar++;
-                    }
+                    title = i;
+                    Console.WriteLine(machineLearning.books[i].Title);
+                }
+                else
+                {
+                    opposite++;
                 }
             }
-            table[0] = allVectors;
-            table[1] = similar;
-            return table;
-            //return similar;
+            //stopwatch.Stop();
+            allNumbers = similar + opposite;
+            similarities[0] = similar;
+            similarities[1] = opposite;
+            similarities[2] = allNumbers;
+            similarities[3] = title;
+
+            // double time = stopwatch.ElapsedMilliseconds;
+            return similarities; 
         }
-
-        static public float CalculatePercentage(long allVectors, long similar)
-        {
-            float percentage = -1.0f;
-
-            if(similar != 0)
-            {
-                percentage = (similar / allVectors) * 100;
-            }
-            return percentage;
-        }
-
 
     }
-
-
-
-
 }

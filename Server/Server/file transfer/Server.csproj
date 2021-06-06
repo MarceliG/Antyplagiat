@@ -107,6 +107,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompareFiles.cs" />
+    <Compile Include="CSV.cs" />
+    <Compile Include="FileResult.cs" />
     <Compile Include="Headers.cs" />
     <Compile Include="Listener.cs" />
     <Compile Include="ServerForm.cs">
@@ -118,6 +120,7 @@
     <Compile Include="PacketIO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="MachineLearning.cs" />
+    <Compile Include="Testowanko.cs" />
     <Compile Include="TransferClient.cs" />
     <Compile Include="TransferQueue.cs" />
     <EmbeddedResource Include="ServerForm.resx">

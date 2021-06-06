@@ -20,8 +20,12 @@ public partial class Main : Form
     //Disconnects
     private bool serverRunning;
 
+    private MachineLearning machineLearning = new MachineLearning();
+
     public Main()
     {
+        machineLearning.Learn();
+
         InitializeComponent();
         //Create the listener and register the event.
         listener = new Listener();
@@ -43,6 +47,7 @@ public partial class Main : Form
             Directory.CreateDirectory(outputFolder);
         }
 
+
         BtnStart.Click += new EventHandler(BtnStartServer_Click);
         BtnStop.Click += new EventHandler(BtnStopServer_Click);
         btnSendFile.Click += new EventHandler(BtnSendFile_Click);
@@ -62,17 +67,25 @@ public partial class Main : Form
         if (!string.IsNullOrEmpty(TxtPath1.Text))
         {
             TxtResult.Clear();
-            MachineLearning.DoVector(TxtPath1.Text);
-            long[] similarites = new long[2];
-            
-            similarites = CompareFiles.IsItSimilar();
-            float percentage = CompareFiles.CalculatePercentage(similarites[0], similarites[1]);
-           // percentage = (float)Math.Round(percentage, 2);
 
-            TxtResult.Text = "Wszystkie wyliczone skojarzenia: " + similarites[0] + "\r\nPodobieństwa: " + similarites[1] + "\r\nProcent podobieństwa: " + percentage + "%";
+            machineLearning.DoVector(TxtPath1.Text);
 
+            int[] similarites = new int[3];
 
+            similarites = CompareFiles.IsItSimilar(machineLearning);
 
+            string result = "";
+            if (similarites[3] == -1)
+            {
+                result = "Podobne: " + similarites[0] + "\r\nPrzeciwne: " + similarites[1] + "\r\nWszyskie: " + similarites[2] + "\r\nBrak podobieństwa - Gratulacje";
+            }
+            else
+            {
+                result = "Podobne: " + similarites[0] + "\r\nPrzeciwne: " + similarites[1] + "\r\nWszyskie: " + similarites[2] + "\r\nPodobieństwo z tekstem: " + machineLearning.books[similarites[3]].Title;
+            }
+
+            TxtResult.Text = result;
+            FileResult.CreateFile(result);
 
         }
         else
@@ -81,7 +94,7 @@ public partial class Main : Form
         }
     }
 
-    
+
 
     private void BtnDirectory1_Click(object sender, EventArgs e)
     {
@@ -95,7 +108,7 @@ public partial class Main : Form
                 TxtPath1.Text = file.FileName;
             }
         }
-        
+
     }
 
 
