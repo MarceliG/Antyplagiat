@@ -1,0 +1,4 @@
+Podobne: 2
+Przeciwne: 4998
+Wszyskie: 5000
+Podobieństwo z tekstem: Exodus

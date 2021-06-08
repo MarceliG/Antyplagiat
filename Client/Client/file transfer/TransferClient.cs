@@ -12,7 +12,7 @@ namespace Client
     {
         //This will hold our connected or connecting socket.
         private readonly Socket baseSocket;
-        readonly NetworkStream networkStream = new NetworkStream(baseSocket, true);
+        // readonly NetworkStream networkStream = new NetworkStream( baseSocket, true);
 
         //This is our receive buffer.
         private byte[] buffer = new byte[8192];
