@@ -200,15 +200,6 @@ namespace Client
                     pw.Write(read);
                     pw.Write(file_buffer, 0, read);
 
-                    /*The reason the buffer size is 8175 is so it'll be about 8 kilobytes
-                     * It should be 8192, but its 8191. I missed a byte since I had to make a quick change, but eh.
-                     * 4 Bytes = ID
-                     * 8 Bytes = Index
-                     * 4 Bytes = read
-                     * 8175 Bytes = file_buffer
-                     * All together (If the file buffer is full) 8192 Bytes
-                     * 
-                     */
 
                     //Increase our data transffered and read index.
                     queue.Transferred += read;

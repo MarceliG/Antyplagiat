@@ -12,7 +12,7 @@ namespace Client
     {
         //This will hold our connected or connecting socket.
         private readonly Socket baseSocket;
-        readonly NetworkStream networkStream = new NetworkStream(baseSocket, true);
+        // readonly NetworkStream networkStream = new NetworkStream( baseSocket, true);
 
         //This is our receive buffer.
         private byte[] buffer = new byte[8192];
@@ -326,15 +326,8 @@ namespace Client
                         queue.Write(buffer, index);
 
                         //Get the progress of the current transfer with the formula
-                        //(AMOUNT_TRANSFERRED * 100) / COMPLETE SIZE
                         queue.Progress = (int)((queue.Transferred * 100) / queue.Length);
 
-                        //This will prevent the us from calling progress changed multiple times.
-                        /* Such as
-                         * 2, 2, 2, 2, 2, 2 (Since the actual progress minus the decimals will be the same for a bit
-                         * It will be
-                         * 1, 2, 3, 4, 5, 6
-                         * Instead*/
                         if (queue.LastProgress < queue.Progress)
                         {
                             queue.LastProgress = queue.Progress;
@@ -362,9 +355,6 @@ namespace Client
                 //Call EndReceive to get the amount available.
                 int found = baseSocket.EndReceive(ar);
 
-                //If found is or is greater than 4 (Meaning our size bytes are there)
-                //We will actually read it from our buffer.
-                //If its less than 4, Run will be called again.
                 if (found >= 4)
                 {
                     //We will receive our size bytes
@@ -376,16 +366,11 @@ namespace Client
                     //And attempt to read our
                     int read = baseSocket.Receive(buffer, 0, size, SocketFlags.None);
 
-                    /*Data could still be fragmented, so we'll check our read size against the actual size.
-                     * If read is less than size, we'll keep receiving until we have the full packet.
-                     * It will only take a few milliseconds or a second (In most cases), so we can use a sync-
-                     * receive*/
                     while (read < size)
                     {
                         read += baseSocket.Receive(buffer, read, size - read, SocketFlags.None);
                     }
 
-                    //We'll call process to handle the data we received.
                     Process();
                 }
 

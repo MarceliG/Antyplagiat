@@ -63,19 +63,6 @@ internal class Listener
 
     }
 
-    public void Start(int port)
-    {
-        if (running)
-            return;
-
-        this.port = port;
-        running = true;
-        socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        socket.Bind(new IPEndPoint(IPAddress.Any, port));
-        socket.Listen(100);
-        socket.BeginAccept(AcceptCallback, null);
-    }
-
     public void Stop()
     {
         if (!running)

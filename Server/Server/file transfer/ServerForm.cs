@@ -5,6 +5,7 @@ using Server;
 using Accord.MachineLearning;
 using Accord.Statistics.Models.Regression;
 using Accord.Statistics.Models.Regression.Fitting;
+using System.Collections;
 
 public partial class Main : Form
 {
@@ -68,22 +69,24 @@ public partial class Main : Form
         {
             TxtResult.Clear();
 
-            machineLearning.DoVector(TxtPath1.Text);
-
-            int[] similarites = new int[3];
-
-            similarites = CompareFiles.IsItSimilar(machineLearning);
+            string[] similaryBooksTitles = machineLearning.FindPlagiats(TxtPath1.Text);
 
             string result = "";
-            if (similarites[3] == -1)
+            result = "Podobne: " + similaryBooksTitles.Length  + "\r\nWielkość bazy danych: " + machineLearning.SizeDataBase();
+            if (similaryBooksTitles.Length == 0)
             {
-                result = "Podobne: " + similarites[0] + "\r\nPrzeciwne: " + similarites[1] + "\r\nWszyskie: " + similarites[2] + "\r\nBrak podobieństwa - Gratulacje";
+                  result += "\r\nBrak podobieństwa - Gratulacje";
             }
             else
             {
-                result = "Podobne: " + similarites[0] + "\r\nPrzeciwne: " + similarites[1] + "\r\nWszyskie: " + similarites[2] + "\r\nPodobieństwo z tekstem: " + machineLearning.books[similarites[3]].Title;
+                result += "\r\nPodobieństwo z tekstem: ";
+                foreach (var title in similaryBooksTitles)
+                {
+                    result += "\r\n" + title;
+                }
+                 
             }
-
+            
             TxtResult.Text = result;
             FileResult.CreateFile(result);
 
