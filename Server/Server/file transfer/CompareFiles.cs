@@ -8,7 +8,7 @@ namespace Server
     public class CompareFiles
     {
 
-        static public int[] IsItSimilar(MachineLearning machineLearning)
+        static public int[] FindSimilarBooks(double[][] bookVectors, double[] clientBookVector)
         {
 
             double value = 0.0;
@@ -17,15 +17,14 @@ namespace Server
             Cosine cos = new Cosine();
           
             
-            for (int i = 0; i < machineLearning.bookVectors.Length; i++)
+            for (int i = 0; i < bookVectors.Length; i++)
             {
                 // cosine similarity
-                value = cos.Similarity(machineLearning.bookVectors[i], machineLearning.clientBookVector);
+                value = cos.Similarity(bookVectors[i], clientBookVector);
 
                 if (value >= 0.5)
                 {
                     bookIndexes.Add(i);
-                    Console.WriteLine("Tytuły książek: " + machineLearning.books[i].Title);
                 }
             }
             

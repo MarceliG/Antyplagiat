@@ -1,4 +1,0 @@
-Podobne: 1
-Przeciwne: 4999
-Wszyskie: 5000
-Podobieństwo z tekstem: Othello

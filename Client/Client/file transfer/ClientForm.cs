@@ -243,18 +243,6 @@ public partial class Main : Form
         //Set the connection status to nothing
         SetConnectionStatus("-");
 
-        /*
-        //If the server is still running, wait for another connection
-        if (serverRunning)
-        {
-            listener.Start(int.Parse(txtPort.Text.Trim()));
-            setConnectionStatus("Waiting...");
-        }
-        else //If we connected then disconnected, set the text back to connect.
-        {
-            btnConnect.Text = "Connect";
-        }
-        */
     }
 
     void TransferClient_Complete(object sender, TransferQueue queue)
@@ -278,55 +266,7 @@ public partial class Main : Form
     {
         lblConnected.Text = "Connection: " + connectedTo;
     }
-    /*
-    private void btnStartServer_Click(object sender, EventArgs e)
-    {
-        //We disabled the button, but lets just do a quick check
-        if (serverRunning)
-            return;
-        serverRunning = true;
-        try
-        {
-            //Try to listen on the desired port
-            listener.Start(int.Parse(txtServerPort.Text.Trim()));
-            //Set the connection status to waiting
-            setConnectionStatus("Waiting...");
-            //Enable/Disable the server buttons.
-            btnStartServer.Enabled = false;
-            btnStopServer.Enabled = true;
-        }
-        catch
-        {
-            MessageBox.Show("Unable to listen on port " + txtServerPort.Text, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-        }
-    }
-
-    private void btnStopServer_Click(object sender, EventArgs e)
-    {
-        if (!serverRunning)
-            return;
-        //Close the client if its active.
-        if (transferClient != null)
-        {
-            transferClient.Close();
-            //INSERT
-            transferClient = null;
-            //
-        }
-        //Stop the listener
-        listener.Stop();
-        //Stop the timer
-        tmrOverallProg.Stop();
-        //Reset the connection statis
-        setConnectionStatus("-");
-        //Set our variables and enable/disable the buttons.
-        serverRunning = false;
-        btnStartServer.Enabled = true;
-        btnStopServer.Enabled = false;
-    }
-    */
-
+ 
     private void BtnClearComplete_Click(object sender, EventArgs e)
     {
         //Loop and clear all complete or inactive transfers
@@ -346,7 +286,7 @@ public partial class Main : Form
         //Get a user defined save directory
         using (FolderBrowserDialog fb = new FolderBrowserDialog())
         {
-            if (fb.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (fb.ShowDialog() == DialogResult.OK)
             {
                 outputFolder = fb.SelectedPath;
 
@@ -370,7 +310,7 @@ public partial class Main : Form
             o.Filter = "All Files (*.*)|*.*";
             o.Multiselect = true;
 
-            if (o.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (o.ShowDialog() == DialogResult.OK)
             {
                 foreach (string file in o.FileNames)
                 {

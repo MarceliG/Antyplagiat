@@ -5,12 +5,10 @@ using System.IO;
 namespace Server
 {
 
-
     public class MachineLearning
     {
-        public double[][] bookVectors;
-        public double[] clientBookVector;
-        public Book[] books = CSV.ReadCSV();
+        private double[][] bookVectors;
+        private Book[] books = CSV.ReadCSV();
 
         private TFIDF codebook = new TFIDF()
         {
@@ -18,10 +16,14 @@ namespace Server
             Idf = InverseDocumentFrequency.Default
         };
 
+        public int SizeDataBase()
+        {
+            return bookVectors.Length;
+        }
 
         public void Learn()
-        {  
-            
+        {
+
             List<string> texts = new List<string>();
             string[] textsTab;
             foreach (var book in books)
@@ -65,13 +67,25 @@ namespace Server
         /// </summary>
         /// <param name="path"></param>
         /// <returns>Convert to vectors every signle words on file</returns>
-        public void DoVector(string path)
+        private double[] DoVector(string path)
         {
             string text = ReadText(path);
             string[] words = text.Tokenize();
 
-            clientBookVector = codebook.Transform(words);
+            return codebook.Transform(words);
         }
-      
+
+        public string[] FindPlagiats(string path)
+        {
+            double[] clientBookVector = DoVector(path);
+            List<string> bookTitle = new List<string>();
+            int[] similaryBooksIndexes = CompareFiles.FindSimilarBooks(bookVectors, clientBookVector);
+            foreach (var index in similaryBooksIndexes)
+            {
+               bookTitle.Add(books[index].Title);
+            }
+
+            return bookTitle.ToArray(); 
+        }
     }
 }

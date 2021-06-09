@@ -69,22 +69,20 @@ public partial class Main : Form
         {
             TxtResult.Clear();
 
-            machineLearning.DoVector(TxtPath1.Text);
-
-            int[] similaryBooksIndexes = CompareFiles.IsItSimilar(machineLearning);
+            string[] similaryBooksTitles = machineLearning.FindPlagiats(TxtPath1.Text);
 
             string result = "";
-            result = "Podobne: " + similaryBooksIndexes.Length  + "\r\nWielkość bazy danych: " + machineLearning.bookVectors.Length;
-            if (similaryBooksIndexes.Length == 0)
+            result = "Podobne: " + similaryBooksTitles.Length  + "\r\nWielkość bazy danych: " + machineLearning.SizeDataBase();
+            if (similaryBooksTitles.Length == 0)
             {
                   result += "\r\nBrak podobieństwa - Gratulacje";
             }
             else
             {
                 result += "\r\nPodobieństwo z tekstem: ";
-                foreach (var index in similaryBooksIndexes)
+                foreach (var title in similaryBooksTitles)
                 {
-                     result += "\r\n" + machineLearning.books[index].Title;
+                    result += "\r\n" + title;
                 }
                  
             }

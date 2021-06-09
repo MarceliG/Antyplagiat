@@ -25,7 +25,7 @@ namespace Server
                 if (!String.IsNullOrWhiteSpace(line))
                 {
                     string[] values = line.Split('\t');     
-                    Book book = new Book(values[2], values[6]); // 
+                    Book book = new Book(values[2], values[6]);
                     books.Add(book);
                 }
             }
