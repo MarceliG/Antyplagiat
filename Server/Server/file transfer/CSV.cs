@@ -18,7 +18,7 @@ namespace Server
             StreamReader reader = new StreamReader(File.OpenRead(path));
             List<Book> books = new List<Book>();
             int ileKsiazke = 0;
-            while (!reader.EndOfStream && ileKsiazke < 5000) // wczytaj tylko 100 książek 
+            while (!reader.EndOfStream && ileKsiazke < 1000) // wczytaj tylko 100 książek 
             {
                 ileKsiazke++;
                 string line = reader.ReadLine();
