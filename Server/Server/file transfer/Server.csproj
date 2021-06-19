@@ -120,7 +120,6 @@
     <Compile Include="PacketIO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="MachineLearning.cs" />
-    <Compile Include="Testowanko.cs" />
     <Compile Include="TransferClient.cs" />
     <Compile Include="TransferQueue.cs" />
     <EmbeddedResource Include="ServerForm.resx">
