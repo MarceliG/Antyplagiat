@@ -1,0 +1,7 @@
+In the early 1700s, French chemist Charles François du Fay found that if a charged gold-leaf is repulsed by glass rubbed with silk, 
+then the same charged gold-leaf is attracted by amber rubbed with wool. From this and other results of similar types of experiments, 
+du Fay concluded that electricity consists of two electrical fluids, vitreous fluid from glass rubbed with silk and resinous fluid from amber rubbed with wool. These two fluids can 
+neutralize each other when combined.[15][16] American scientist Ebenezer Kinnersley later also independently reached the same conclusion.[17]:118 A decade later Benjamin Franklin 
+proposed that electricity was not from different types of electrical fluid, but a single electrical fluid showing an excess (+) or deficit (−). He gave them the modern charge
+ nomenclature of positive and negative respectively.[18] Franklin thought of the charge carrier as being positive, but he did not correctly identify which situation 
+was a surplus of the charge carrier, and which situation was a deficit.

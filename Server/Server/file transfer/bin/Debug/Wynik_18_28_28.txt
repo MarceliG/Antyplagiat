@@ -1,5 +1,0 @@
-Podobne: 2
-Wielkość bazy danych: 5000
-Podobieństwo z tekstem: 
-Animal Farm
-Exodus
